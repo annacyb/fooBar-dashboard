@@ -18,6 +18,8 @@ function showData(data) {
         queueContainer.innerHTML =
             queueContainer.innerHTML + `<div>${JSON.stringify(order)}</div>`;
         // setupEventListener(queue_template)
+        // setting event listeners on templates won't work unfortunately (it must be DOM object not Template object)
+        // solution? create new loop on queueContainer childrens and add event listeners there
     });
 }
 

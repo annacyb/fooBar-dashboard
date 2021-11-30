@@ -2,8 +2,6 @@ import { tabs } from "../modules/tabs.js";
 import { refresh_rate } from "../modules/settings.js";
 import { get_orders, get_beers } from "../modules/api.js";
 import { showQueue } from "./queue.js";
-import { showOrders } from "./orders.js";
-
 window.addEventListener("DOMContentLoaded", start);
 
 const data = {
@@ -28,7 +26,6 @@ async function loadData() {
 
 function showData() {
     showQueue(data);
-    showOrders(data);
 }
 
 async function loop() {
