@@ -3,13 +3,10 @@
 }
 
 @media screen and (min-width: 800px) {
-  ul {
+  #tabs {
     display: none;
   }
   .hidden {
     display: initial;
   }
-}
-main {
-  margin-left: 12vw;
 }
