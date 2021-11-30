@@ -1,0 +1,15 @@
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  ul {
+    display: none;
+  }
+  .hidden {
+    display: initial;
+  }
+}
+main {
+  margin-left: 12vw;
+}

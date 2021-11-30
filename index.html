@@ -5,11 +5,86 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.scss" />
-    <h1>HI</h1>
   </head>
   <body>
-    <div id="app"></div>
-    <a href="./inventory.html">Inventory button</a>
-    <script type="module" src="/main.js"></script>
+    <head>
+      <nav>
+        <div id="side-nav">
+          <a href="./index.html">
+            <h1>LOGO</h1>
+          </a>
+
+          <a href="./index.html">
+            <div class="nav-elem">
+              <img src="./icons/history.svg" alt="" />
+              <p>Orders</p>
+            </div>
+          </a>
+
+          <a href="./inventory.html">
+            <div class="nav-elem">
+              <img src="./icons/inventory&statistics.svg" alt="" />
+              <p>Inventory<br />& Statistics</p>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="nav-elem">
+              <img src="./icons/history.svg" alt="" />
+              <p>History</p>
+            </div>
+          </a>
+        </div>
+
+        <div id="nav-bottom">
+          <a href="./index.html">
+            <h1 class="logo">LOGO</h1>
+          </a>
+
+          <a href="./index.html">
+            <div class="nav-elem-mobile">
+              <img src="./icons/history.svg" alt="" />
+              <p>Orders</p>
+            </div>
+          </a>
+
+          <a href="./inventory.html">
+            <div class="nav-elem-mobile">
+              <img src="./icons/inventory&statistics.svg" alt="" />
+              <p>Inventory<br />& Statistics</p>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="nav-elem-mobile">
+              <img src="./icons/history.svg" alt="" />
+              <p>History</p>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </head>
+    <main>
+      <div>
+        <ul>
+          <li><a href="#/" data-bartender="Jonas">Jonas</a></li>
+          <li><a href="#/" data-bartender="Peter">Peter</a></li>
+          <li><a href="#/" data-bartender="Dannie">Dannie</a></li>
+        </ul>
+        <div>
+          <section data-bartender="Jonas">
+            <h2>Jonas</h2>
+          </section>
+          <section data-bartender="Peter">
+            <h2>Peter</h2>
+          </section>
+          <section data-bartender="Dannie">
+            <h2>Dannie</h2>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <script type="module" src="script/orders/main.js"></script>
   </body>
 </html>
