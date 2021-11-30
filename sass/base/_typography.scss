@@ -1,3 +1,10 @@
-h1 {
-  color: hotpink;
+@import url('https://fonts.googleapis.com/css2?family=Bigshot+One&family=Public+Sans&display=swap');
+
+html {
+  font-size: 100%;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Open Sans', sans-serif;
+}
+
