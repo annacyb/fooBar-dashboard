@@ -28,4 +28,41 @@
     margin-bottom: 15px;
 }
 
+#nav-bottom {
+    display: none;
+
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+    #side-nav {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    #nav-bottom {
+        display: flex;
+        justify-content: space-around;
+
+        -webkit-box-shadow: 0px -10px 10px 1px rgba(0,0,0,0.10); 
+        box-shadow: 0px -10px 10px 1px rgb(0 0 0 / 10%);
+
+        z-index: 1000;
+    }
+
+    .nav-elem-mobile {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+    }
+
+}
+
 
