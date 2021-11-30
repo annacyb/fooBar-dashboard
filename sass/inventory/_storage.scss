@@ -9,10 +9,8 @@
   }
 }
 
-template div {
-}
-
-main {
+#storage {
+  padding-top: 5vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 2vw;
