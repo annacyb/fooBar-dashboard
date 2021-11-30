@@ -1,1 +1,5 @@
-@use 'sass/_base.scss';
+@use "sass/base/reset";
+@use "sass/base/colors";
+@use "sass/base/typography";
+
+@use "sass/components/navigation";
