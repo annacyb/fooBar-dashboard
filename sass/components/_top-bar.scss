@@ -1,0 +1,38 @@
+#top-bar {
+    height: 66px;
+    background-color: white;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 100px;
+    z-index: 999;
+
+    border-bottom: grey 1px solid;
+
+    display: grid;
+    // grid-template-columns: 5vw 36vw 25vw 10vw 2vw 5vw 5vw;
+    grid-template-columns: 5% 36% 25% 10% 2% 5% 5%;
+}
+
+#web-title {
+    grid-column: 2 / span 2;
+}
+
+#cont-closing-time {
+    grid-column: 4 / span 1;
+}
+
+#cont-current-time {
+    grid-column: 6 / span 1;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+}

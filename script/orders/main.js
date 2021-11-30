@@ -1,46 +1,39 @@
 import { tabs } from "../modules/tabs.js";
+import { refresh_rate } from "../modules/settings.js";
+import { get_orders, get_beers } from "../modules/api.js";
+import { showQueue } from "./queue.js";
+import { showOrders } from "./orders.js";
 
 window.addEventListener("DOMContentLoaded", start);
 
-let listJonas = [];
-let listKlaus = [];
-let listPeter = [];
-let listDannie = [];
-let waiting = [];
-
-const Order = {
-  id: 0,
-  time: 0,
-  items: [],
-};
-
-const Bartender = {
-  name: "",
-  status: "",
-  statusDetail: "",
-  usingTap: 0,
-  servingCustomer: 0,
+const data = {
+    beers: {},
+    orders: {},
 };
 
 async function start() {
-  tabs();
-  orderController();
+    // tabs();
+    setupEventListeners();
+    loop();
 }
 
-async function loadJSON() {
-  console.log("loadJS");
-  const response = await fetch("https://foo-bar-database.herokuapp.com/");
-  const jsonData = await response.json();
-  console.log(jsonData);
+function setupEventListeners() {
+    // TODO
 }
 
-async function orderController() {
-  console.clear();
+async function loadData() {
+    data.beers = await get_beers();
+    data.orders = await get_orders();
+}
 
-  const serverUrl = "https://foo-bar-database.herokuapp.com/";
+function showData() {
+    showQueue(data);
+    showOrders(data);
+}
 
-  // Fetch new data
-  const jsonData = await loadJSON(serverUrl);
+async function loop() {
+    await loadData();
+    showData();
 
-  setTimeout(orderController, 5000);
+    setTimeout(loop, refresh_rate);
 }
