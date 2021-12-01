@@ -69,7 +69,7 @@
     <main>
       <div class="list">chart</div>
       <div id="top-bar">
-        <h1 id="web-title">ORDERS</h1>
+        <h1 id="web-title">Inventory & Statictics</h1>
         <div id="cont-closing-time" class="closing-time">
           <img src="" alt="" />
           <p>Closing in <span>1</span>h <span>20</span><span>min</span></p>
@@ -83,24 +83,30 @@
       <section id="storage">
         <div class="list">
           <h1>STORAGE</h1>
-          <ul class="beer-stock-status-list">
+          <ul class="stock-list">
             BEER STOCK HERE
           </ul>
         </div>
 
         <div class="list">
           <h1>BEER TAPS</h1>
-          <ul class="tap-stock-status-list">
+          <ul class="tap-list">
             TAP STOCK HERE
           </ul>
         </div>
       </section>
     </main>
 
-    <template class="t-beer-stock">
+    <template class="template-stock">
       <div>
-        <h1 class="beer-stock__amount"></h1>
-        <p class="beer-stock__name"></p>
+        <h1 class="stock-amount"></h1>
+        <p class="stock-name"></p>
+      </div>
+    </template>
+    <template class="template-tap">
+      <div>
+        <h1 class="tap-amount"></h1>
+        <p class="tap-name"></p>
       </div>
     </template>
     <footer></footer>

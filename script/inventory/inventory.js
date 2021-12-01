@@ -1,5 +1,5 @@
 import { prepareBeerStockStatusObjects } from "./beer-stock";
-
+import { prepareTapStatus } from "./beer-tap";
 window.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -13,18 +13,19 @@ async function init() {
 }
 
 function buildView(data) {
-  const { storage } = data;
+  const { storage, taps } = data;
 
   prepareBeerStockStatusObjects(storage);
+  prepareTapStatus(taps);
 }
 
 async function updateView() {
   const data = await getData();
 
-  const { storage } = data;
+  const { storage, taps } = data;
 
   prepareBeerStockStatusObjects(storage);
-
+  prepareTapStatus(taps);
   // Call getQueue again, to wait for the next update to the queue
   setTimeout(updateView, 5000);
 }
