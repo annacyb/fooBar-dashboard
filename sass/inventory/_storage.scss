@@ -1,18 +1,9 @@
 .list {
   ul {
-    padding: 3vw;
     border-radius: 2vw;
     -webkit-box-shadow: 0px -2px 10px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 0px -2px 10px 1px rgb(0 0 0 / 10%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
-
-#storage {
-  padding-top: 5vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 2vw;
-  row-gap: 2vw;
 }
