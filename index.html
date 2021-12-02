@@ -65,10 +65,9 @@
       </nav>
     </head>
 
-    <main>
+    <main id="main-orders">
 
-      <div class="list">chart</div>
-      <div id="top-bar">
+      <!-- <div id="top-bar">
         <h1 id="web-title">Orders</h1>
         <div id="cont-closing-time" class="closing-time">
           <img src="" alt="" />
@@ -78,7 +77,7 @@
           <img src="" alt="" />
           <p class="current-time-place"></p>
         </div>
-      </div>
+      </div> -->
 
 
 
@@ -86,32 +85,34 @@
 
       <div>
         <ul id="tabs">
-          <li><a href="#/" data-bartender="Waiting">Waiting</a></li>
-          <li><a href="#/" data-bartender="Jonas">Jonas</a></li>
-          <li><a href="#/" data-bartender="Peter">Peter</a></li>
+          <li class="selectedTab"><a href="#/" data-bartender="Queue">Queue</a></li>
           <li><a href="#/" data-bartender="Dannie">Dannie</a></li>
+          <li><a href="#/" data-bartender="Jonas">Jonas</a></li>
+          <li><a href="#/" data-bartender="Klaus">Klaus</a></li>
+          <li><a href="#/" data-bartender="Peter">Peter</a></li>
         </ul>
         <div>
-          <section data-bartender="Waiting">
+          <section data-bartender="Queue">
             <h2>Queue</h2>
-          </section>
-          <section data-bartender="Jonas">
-            <h2>Jonas</h2>
-          </section>
-          <section data-bartender="Peter">
-            <h2>Peter</h2>
           </section>
           <section data-bartender="Dannie">
             <h2>Dannie</h2>
           </section>
-          <section data-bartender="Dannie">
+          <section data-bartender="Jonas">
+            <h2>Jonas</h2>
+          </section>
+          <section data-bartender="Klaus">
             <h2>Klaus</h2>
+          </section>
+          <section data-bartender="Peter">
+            <h2>Peter</h2>
           </section>
         </div>
       </div>
 
 
       <div id="queue-wrapper"></div>
+
     </main>
 
     <script type="module" src="./script/orders/main.js"></script>
