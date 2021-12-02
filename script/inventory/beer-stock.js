@@ -18,6 +18,7 @@ function showBeerStock(beerObject) {
   template.querySelector(".stock-name").textContent = name;
 
   template.querySelector(".stock-amount").textContent = amount;
+  // template.querySelector(".stock-amount").style.color = "colors.$ElHefe";
 
   list.append(template);
 }

@@ -20,12 +20,13 @@
 }
 
 .tap-info-wrap {
-  padding-top: 1.5vw;
-  padding-bottom: 1.5vw;
+  padding-top: 1.3vw;
+  padding-bottom: 1.3vw;
 }
 
 .tap-list-container {
   ul {
+    height: 18vw;
     padding: 1vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

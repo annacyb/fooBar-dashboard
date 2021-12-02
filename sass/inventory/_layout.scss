@@ -1,0 +1,21 @@
+#storage {
+  margin-top: 80px;
+  h1 {
+    text-align: center;
+    padding: 1vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    margin-left: 120px;
+  }
+
+  #storage {
+    margin-top: 75px;
+    display: grid;
+    grid-template-columns: 45% 51%;
+    column-gap: 2%;
+    row-gap: 2vw;
+  }
+}
