@@ -15,6 +15,7 @@
 
     display: grid;
     grid-template-columns: 140px 0.5fr 0.3fr auto 60px auto 0px;
+
 }
 
 #web-title {
@@ -64,7 +65,7 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    #cont-closing-time, .cont-separator {
+    #closing-in {
         display: none;
     }
 }
@@ -72,20 +73,51 @@
 
 @media only screen and (max-width: 600px) {
     #top-bar {
-        left: 0px;
+        display: grid;
+        grid-template-columns: 25px auto 0.8fr 50px auto 0px;
     }
 
-    #web-title, #cont-closing-time {
+    #web-title {
         display: none;
     }
 
     #logo-mobile {
+        grid-column: 2 / span 1;
         display: block;
-        margin-left: 30px;
+        // margin-left: 30px;
         font-size: 0.9rem;
-        margin-top: 4%;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+
+    #cont-closing-time {
+        grid-column: 3 / span 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+
+    .cont-separator {
+        grid-column: 4 / span 1;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+
+    #cont-current-time {
+        grid-column: 5 / span 1;
+        grid-row: 1 / span 2;
+        align-self: center;
     }
 }
 
+@media only screen and (max-width: 500px) {
+    #cont-closing-time, .cont-separator {
+        display: none;
+    }
+
+    #cont-current-time {
+        text-align: right;
+        padding-right: 25px;
+    }
+}
 
 
