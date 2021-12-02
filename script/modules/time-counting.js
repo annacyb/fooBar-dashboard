@@ -40,13 +40,21 @@ function showTimeTillClosing(ordersData, currentTime) {
     // https://stackoverflow.com/questions/24936855/get-time-difference-in-hours-minutes-and-seconds
 
     let diff = closingTime.diff(currentTime, "second");
-    let hours = Math.floor(diff / 3600);
-    let minute = Math.floor((diff - hours * 3600) / 60);
-    let seconds = Math.floor(diff - hours * 3600 - minute * 60);
+    let hoursLeft = Math.floor(diff / 3600);
+    let minuteLeft = Math.floor((diff - hoursLeft * 3600) / 60);
+    let secondsLeft = Math.floor(diff - hoursLeft * 3600 - minuteLeft * 60);
 
-    console.log("CHECK ", hours, minute, seconds);
+    console.log("CHECK ", hoursLeft, minuteLeft, secondsLeft);
 
-    // show in HTML
+    // show time till closing in HTML
+    const hoursLeftPlace = document.getElementById("closingHour");
+    const minutesLeftPlace = document.getElementById("closingMinutes");
+
+    hoursLeftPlace.innerHTML = "";
+    hoursLeftPlace.innerHTML = hoursLeft;
+
+    minutesLeftPlace.innerHTML = "";
+    minutesLeftPlace.innerHTML = minuteLeft;
 }
 
 setInterval(getCurrentTime, 1000);
