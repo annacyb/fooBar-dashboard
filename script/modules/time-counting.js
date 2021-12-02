@@ -7,7 +7,18 @@ async function getCurrentTime() {
 
     let time = dayjs(timestamp).format("HH:mm:ss");
 
-    console.log("TIME: ", time);
+    // showing time for each element that has class "current-time-place"
+    showTimeOnPage(time);
+}
+
+function showTimeOnPage(time) {
+    const timePlaces = document.querySelectorAll(".current-time-place");
+    let timePlacesArray = [...timePlaces];
+
+    timePlacesArray.forEach((element) => {
+        element.innerHTML = "";
+        element.innerHTML = time;
+    });
 }
 
 setInterval(getCurrentTime, 1000);
