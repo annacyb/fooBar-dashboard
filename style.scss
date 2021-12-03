@@ -1,11 +1,18 @@
-@use "sass/base/reset";
-@use "sass/base/colors";
-@use "sass/base/typography";
-@use 'sass/inventory/layout';
+// general
+@use "./sass/base/reset";
+@use "./sass/base/colors";
+@use "./sass/base/typography";
 
-@use "sass/components/navigation";
-@use 'sass/components/tabs';
-@use 'sass/components/top-bar';
+// components
+@use "./sass/components/navigation";
+@use './sass/components/tabs';
+@use './sass/components/top-bar';
 
-@use 'sass/inventory/storage';
-@use 'sass/inventory/taps';
+// inventory
+@use './sass/inventory/storage';
+@use './sass/inventory/taps';
+@use './sass/inventory/layout';
+
+// orders
+@use './sass/orders/layout-orders';
+
