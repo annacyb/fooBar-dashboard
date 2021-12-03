@@ -8,7 +8,6 @@ async function init() {
   // console.log(data);
 
   buildView(data);
-
   updateView();
 }
 

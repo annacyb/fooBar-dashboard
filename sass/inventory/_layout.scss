@@ -8,14 +8,17 @@
 
 @media screen and (min-width: 600px) {
   main {
-    margin-left: 120px;
+    margin-left: 100px;
   }
+}
 
+@media screen and (min-width: 900px) {
   #storage {
+    margin-left: 20px;
     margin-top: 75px;
     display: grid;
-    grid-template-columns: 45% 51%;
-    column-gap: 2%;
+    grid-template-columns: 43% 53%;
+    column-gap: 1.5%;
     row-gap: 2vw;
   }
 }
