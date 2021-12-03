@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Bigshot+One&family=Public+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bigshot+One&family=Public+Sans&display=swap");
 
 html {
   font-size: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Open Sans', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: "Open Sans", sans-serif;
 }
 
+//TO CHANGE- possibly change the main font to something else
+$font1: "Open Sans", sans-serif;
