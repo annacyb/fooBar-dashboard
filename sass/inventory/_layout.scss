@@ -3,6 +3,22 @@
   h1 {
     text-align: center;
     padding: 1vw;
+    font-size: 1.7vw;
+  }
+}
+
+#served-today {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.3vw;
+
+  p {
+    padding: 1vw;
+    height: 10vw;
+    border-radius: 2vw;
+    -webkit-box-shadow: 0px -2px 10px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -2px 10px 1px rgb(0 0 0 / 10%);
   }
 }
 
