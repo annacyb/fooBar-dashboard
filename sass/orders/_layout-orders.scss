@@ -2,6 +2,120 @@
     margin-left: 100px;
 }
 
+#orders-content {
+    margin-top: 66px;
+    display: flex;
+}
+
+#queue-wrapper {
+    width: 30vw;
+    height: 100vh;
+    min-width: 350px;
+    background-color: #e6e6e6;
+
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 25px;
+    padding-bottom: 30px;
+}
+
+#queue-wrapper > h2 {
+    margin-bottom: 25px;
+}
+
+.queue-order-wrapper {
+    background-color: white;
+    border-radius: 5px;
+
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-bottom: 25px;
+}
+
+// bartender
+
+#bartenders-wrapper {
+    display: flex;
+    flex-flow: wrap;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.bartender-cont {
+    height: 300px;
+
+    width: 30vw;
+    min-width: 350px;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+
+    margin: 15px;
+}
+
+.bartender-top-bar {
+    display: flex;
+    height: 44px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.button-break {
+    height: 44px;
+    width: 80px;
+
+    margin-right: 5px;
+}
+
+.button-leave {
+    height: 44px;
+    width: 80px;
+
+    margin-left: 5px;
+}
+
+// order details
+
+.order-wrapper {
+    background-color: white;
+    border-radius: 5px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 25px;
+}
+
+.order-top-bar {
+    display: flex;
+
+    padding-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.order-details {
+    margin-top: 15px;
+    margin-left: 25px;
+
+}
+
+.order-details-row {
+    display: flex;
+}
+
+.button-ready {
+    height: 44px;
+    width: 80px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+
+
 @media screen and (max-width: 600px) {
     #main-orders {
         margin-left: 0px;

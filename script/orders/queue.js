@@ -1,4 +1,4 @@
-const queueContainer = document.getElementById("queue-wrapper");
+const queueContainer = document.querySelector(".queue-wrapper");
 
 function clearQueue() {
     queueContainer.innerHTML = "";

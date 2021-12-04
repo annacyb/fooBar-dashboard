@@ -88,7 +88,7 @@
           <li><a href="#/" data-bartender="Klaus">Klaus</a></li>
           <li><a href="#/" data-bartender="Peter">Peter</a></li>
         </ul>
-        <div>
+        <!-- <div>
           <section data-bartender="Queue">
             <h2>Queue</h2>
           </section>
@@ -104,11 +104,197 @@
           <section data-bartender="Peter">
             <h2>Peter</h2>
           </section>
-        </div>
+        </div>  -->
       </div>
 
 
-      <div id="queue-wrapper"></div>
+      <div id="orders-content">
+
+        <section id="queue-wrapper">
+          <h2>Queue: <span id="queue-nr"></span>2</h2>
+
+          <div class="queue-order-wrapper">
+            <div class="order-top-bar">
+              <h2>Order <span class="order-id">#25</span></h2>
+              <img src="" alt="">
+              <p class="order-time">20:23:45</p>
+            </div>
+
+            <div class="order-details">
+              <div class="order-details-row">
+                <div class="order-details-row-color"></div>
+                <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+              </div>
+
+              <div class="order-details-row">
+                <div class="order-details-row-color"></div>
+                <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+              </div>
+            </div>
+
+            <button class="button-ready">READY</button>
+          </div>
+
+          <!-- to delete after -->
+          <div class="queue-wrapper"></div>
+
+        </section>
+
+        <section id="bartenders-wrapper">
+          
+          <div class="bartender-cont">
+            <div class="bartender-top-bar">
+              <div class="personal-info">
+                <img class="bartender-photo" src="" alt="">
+                <h4 class="bartender-name">Jonas</h4>
+                <p class="bartender-nr-orders"><span></span> orders</p>
+              </div>
+              <button class="button-break">BREAK</button>
+              <button class="button-leave">LEAVE</button>
+            </div>
+
+            <template class="order-template"></template>
+
+            <div class="order-wrapper">
+              <div class="order-top-bar">
+                <h2>Order <span class="order-id">#25</span></h2>
+                <img src="" alt="">
+                <p class="order-time">20:23:45</p>
+              </div>
+
+              <div class="order-details">
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+              </div>
+
+              <button class="button-ready">READY</button>
+            </div>
+
+          </div>
+
+          <div class="bartender-cont">
+            <div class="bartender-top-bar">
+              <div class="personal-info">
+                <img class="bartender-photo" src="" alt="">
+                <h4 class="bartender-name">Jonas</h4>
+                <p class="bartender-nr-orders"><span></span> orders</p>
+              </div>
+              <button class="button-break">BREAK</button>
+              <button class="button-leave">LEAVE</button>
+            </div>
+
+            <template class="order-template"></template>
+
+            <div class="order-wrapper">
+              <div class="order-top-bar">
+                <h2>Order <span class="order-id">#25</span></h2>
+                <img src="" alt="">
+                <p class="order-time">20:23:45</p>
+              </div>
+
+              <div class="order-details">
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+              </div>
+
+              <button class="button-ready">READY</button>
+            </div>
+
+          </div>
+
+          <div class="bartender-cont">
+            <div class="bartender-top-bar">
+              <div class="personal-info">
+                <img class="bartender-photo" src="" alt="">
+                <h4 class="bartender-name">Jonas</h4>
+                <p class="bartender-nr-orders"><span></span> orders</p>
+              </div>
+              <button class="button-break">BREAK</button>
+              <button class="button-leave">LEAVE</button>
+            </div>
+
+            <template class="order-template"></template>
+
+            <div class="order-wrapper">
+              <div class="order-top-bar">
+                <h2>Order <span class="order-id">#25</span></h2>
+                <img src="" alt="">
+                <p class="order-time">20:23:45</p>
+              </div>
+
+              <div class="order-details">
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+              </div>
+
+              <button class="button-ready">READY</button>
+            </div>
+
+          </div>
+
+          <div class="bartender-cont">
+            <div class="bartender-top-bar">
+              <div class="personal-info">
+                <img class="bartender-photo" src="" alt="">
+                <h4 class="bartender-name">Jonas</h4>
+                <p class="bartender-nr-orders"><span></span> orders</p>
+              </div>
+              <button class="button-break">BREAK</button>
+              <button class="button-leave">LEAVE</button>
+            </div>
+
+            <template class="order-template"></template>
+
+            <div class="order-wrapper">
+              <div class="order-top-bar">
+                <h2>Order <span class="order-id">#25</span></h2>
+                <img src="" alt="">
+                <p class="order-time">20:23:45</p>
+              </div>
+
+              <div class="order-details">
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+
+                <div class="order-details-row">
+                  <div class="order-details-row-color"></div>
+                  <p><span class="order-details-row-nr">2</span> x <span class="order-details-row-name">Githop</span></p>
+                </div>
+              </div>
+
+              <button class="button-ready">READY</button>
+            </div>
+
+          </div>
+
+
+          
+        </section>
+
+      </div>
 
     </main>
 
