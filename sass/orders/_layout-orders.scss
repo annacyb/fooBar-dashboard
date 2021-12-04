@@ -83,14 +83,14 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
 
 .button-break {
     height: 44px;
-    width: 80px;
+    width: 90px;
 
     margin-right: 5px;
 }
 
 .button-leave {
     height: 44px;
-    width: 80px;
+    width: 90px;
 
     margin-left: 5px;
 }
@@ -103,10 +103,12 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
 
     margin-left: 25px;
     margin-right: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
 
     -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16); 
     box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+
+    margin-bottom: 10px;
 }
 
 .order-top-bar {
@@ -141,6 +143,7 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
 .order-details-row {
     display: flex;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .order-details-row-color {
@@ -153,7 +156,7 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
 
 .button-ready {
     height: 44px;
-    width: 80px;
+    width: 90px;
     margin-top: 20px;
     margin-left: 25px;
 }
