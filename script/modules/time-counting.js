@@ -27,14 +27,11 @@ function showTimeTillClosing(ordersData, currentTime) {
     // get closing time from database (it is only hour not timestamp)
     const closingHour = ordersData.bar.closingTime;
     const dateNow = dayjs().format("MM-DD-YYYY");
-    console.log("now", dateNow);
+    // console.log("now", dateNow);
     const closingTime = dayjs(
         `${dateNow} ${closingHour}`,
         "MM-DD-YYYY H:mm:SS"
     ); // library works with USA date system
-
-    console.log(closingTime);
-    console.log(currentTime);
 
     // calculating inspired by:
     // https://stackoverflow.com/questions/24936855/get-time-difference-in-hours-minutes-and-seconds
@@ -43,8 +40,6 @@ function showTimeTillClosing(ordersData, currentTime) {
     let hoursLeft = Math.floor(diff / 3600);
     let minuteLeft = Math.floor((diff - hoursLeft * 3600) / 60);
     let secondsLeft = Math.floor(diff - hoursLeft * 3600 - minuteLeft * 60);
-
-    console.log("CHECK ", hoursLeft, minuteLeft, secondsLeft);
 
     // show time till closing in HTML
     const hoursLeftPlace = document.getElementById("closingHour");
