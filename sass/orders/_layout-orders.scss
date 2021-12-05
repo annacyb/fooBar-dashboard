@@ -5,6 +5,7 @@
 #orders-content {
     margin-top: 66px;
     display: flex;
+    margin-left: 0px;
 }
 
 #queue-wrapper {
@@ -12,6 +13,7 @@
     // height: calc(100vh - 66px); --> why it is changing flex-grid of bartenders?
     // height: calc(100vh - 136px);
     min-width: 350px;
+    max-width: 500px;
     background-color: #ebebeb;
 
     padding-top: 30px;
@@ -51,13 +53,15 @@
 .bartender-cont {
     // height: 300px;
 
-    width: 30vw;
+    width: 47%;
     min-width: 350px;
     background-color: #ebebeb;
     border-radius: 10px;
 
     margin: 10px;
     padding-bottom: 10px;
+
+    max-width: 500px;
 }
 
 .bartender-top-bar {
@@ -169,8 +173,108 @@
 }
 
 
+@media screen and (max-width: 1400px) {
+    .button-break {
+        width: 80px;
+        margin-left: 0px;
+    }
+    
+    .button-leave {
+        width: 80px;
+        margin-left: 0px;
+    }
+
+    .order-wrapper {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .bartender-photo {
+        margin-right: 10px   
+    }
+
+}
+
+@media screen and (max-width: 1310px) {
+    .bartender-cont {
+        width: 100%;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    #main-orders {
+        margin-left: 0px;
+    }
+
+    #orders-content {
+        margin-left: 100px;
+    }
+
+    #bartenders-wrapper {
+        margin-left: 15px;
+    }
+
+    #queue-wrapper {
+        min-width: 350px;
+        max-width: 350px;
+    }
+        
+  }
+
+// when TABS are appearing
+@media screen and (max-width: 900px) {
+    #bartenders-wrapper {
+        display: none;
+    }
+
+    #queue-wrapper {
+        min-width: calc(100vw - 155px);
+        max-width: calc(100vw - 155px);
+    }
+
+    #orders-content {
+        margin-top: 0px;
+        height: calc(100vh - 125px);
+    }
+
+    .queue-order-wrapper {
+        max-width: 420px;
+    }
+}
+
+
 @media screen and (max-width: 600px) {
     #main-orders {
         margin-left: 0px;
     }
+    #orders-content {
+        margin-left: 0px;
+        justify-content: center;
+    }
+
+    #bartenders-wrapper {
+        margin-left: 0px;
+        margin-right: 0px;
+        justify-content: center;
+    }
+
+    #queue-wrapper {
+        min-width: 100vw;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #queue-wrapper > h2 {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    #queue-wrapper > #queue-orders {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+
   }
