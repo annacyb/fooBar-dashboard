@@ -1,42 +1,45 @@
 {
-    "beer1": {
-        "name": "El Hefe",
-        "color": "#FED13D"
-    },
-    "beer2": {
-        "name": "Row 26",
-        "color": "#AEC1FF"
-    },
-    "beer3": {
-        "name": "GitHop",
-        "color": "#FFCBBB"
-    },
-    "beer4": {
-        "name": "Hollaback Lager",
-        "color": "#FFBB87"
-    },
-    "beer5": {
-        "name": "Mowintime",
-        "color": "#A5FFDA"
-    },
-    "beer6": {
-        "name": "Fairy Tale Ale",
-        "color": "#EFACFF"
-    },
-    "beer7": {
-        "name": "Hoppily Ever After",
-        "color": "#A2E34C"
-    },
-    "beer8": {
-        "name": "Steampunk",
-        "color": "#A0B3C2"
-    },
-    "beer9": {
-        "name": "Ruined Childhood",
-        "color": "#E9EF39"
-    },
-    "beer10": {
-        "name": "Sleighride",
-        "color": "#CAABFF"
-    }
- }
+    "beers": [
+        {
+            "name": "El Hefe",
+            "color": "#FED13D"
+        },
+        {
+            "name": "Row 26",
+            "color": "#AEC1FF"
+        },
+        {
+            "name": "GitHop",
+            "color": "#FFCBBB"
+        },
+        {
+            "name": "Hollaback Lager",
+            "color": "#FFBB87"
+        },
+        {
+            "name": "Mowintime",
+            "color": "#A5FFDA"
+        },
+        {
+            "name": "Fairy Tale Ale",
+            "color": "#EFACFF"
+        },
+        {
+            "name": "Hoppily Ever After",
+            "color": "#A2E34C"
+        },
+        {
+            "name": "Steampunk",
+            "color": "#A0B3C2"
+        },
+        {
+            "name": "Ruined Childhood",
+            "color": "#E9EF39"
+        },
+        {
+            "name": "Sleighride",
+            "color": "#CAABFF"
+        }
+    ]
+
+}

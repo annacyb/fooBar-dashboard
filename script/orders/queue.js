@@ -13,10 +13,10 @@ function setupEventListener(container) {
     });
 }
 
-function showQueueData(data) {
+async function showQueueData(data) {
     let countOrders = 0;
 
-    data.orders.queue.forEach((element) => {
+    data.orders.queue.forEach(async (element) => {
         //grab the template for order in a queue
         const queue_order_template = document.querySelector(
             "template.queue-order-template"
@@ -34,7 +34,7 @@ function showQueueData(data) {
 
         // myCopy.querySelector(".order-details-row-name").src = element[0];
 
-        element.order.forEach((orderName) => {
+        element.order.forEach(async (orderName) => {
             const random = Math.floor(Math.random() * 100) + 1;
             console.log("ORDER ", random, orderName);
 
@@ -48,19 +48,12 @@ function showQueueData(data) {
                 queue_order_details_template.cloneNode(true);
 
             //change content
-
-            // TO DO
             //setting colour of circles for every beer
-            const beerColor = setBeerMainColor(orderName);
+            const beerColor = await setBeerMainColor(orderName);
 
             orderDetailsCopy.querySelector(
                 ".order-details-row-color"
-            ).style.backgroundColor = "red";
-
-            //TO DO
-            // orderDetailsCopy.querySelector(
-            //     ".order-details-row-color"
-            // ).style.backgroundColor = beerColor;
+            ).style.backgroundColor = beerColor;
 
             orderDetailsCopy.querySelector(
                 ".order-details-row-name"
@@ -86,9 +79,6 @@ function showQueueData(data) {
 
         //append
         parent.appendChild(myCopy);
-
-        // const orderContainer = document.querySelector(".order-details-place");
-        // orderContainer.appendChild(orderDetailsCopy);
     });
     showOrderNr(countOrders);
 }
@@ -112,19 +102,21 @@ function showOrderNr(number) {
     ordersNrCont.innerHTML = number;
 }
 
-function setBeerMainColor(beerName) {
-    // TO DO
-    // return BeerColor;
+async function setBeerMainColor(beerName) {
+    // fetch data
+    const dataWithColors = await getBeerMainColors();
+    console.log(dataWithColors);
+
+    let found = dataWithColors.beers.filter((beer) => beer.name == beerName);
+    if (found.length == 0) {
+        console.log("Beer not found");
+    }
+    return found[0].color;
+}
+
+async function getBeerMainColors() {
+    const response = await fetch("../beer-colors.json");
+    return await response.json();
 }
 
 export { showQueue };
-
-// let data3 = []
-
-// data.forEach(a => {
-//     data2.forEach(b => {
-//         if (a.id == b.id) {
-//             data3.push({'a_something': a.element, 'b_something': b.name})
-//         }
-//     })
-// })
