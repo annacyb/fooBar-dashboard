@@ -7,7 +7,6 @@ async function getCurrentTime() {
 
     let time = dayjs(timestamp);
 
-    // showing time for each element that has class "current-time-place"
     showTimeOnPage(time.format("HH:mm:ss"));
 
     showTimeTillClosing(ordersData, time);
@@ -23,11 +22,17 @@ function showTimeOnPage(time) {
     });
 }
 
+function changeTimestampToTime(timestamp) {
+    let time = dayjs(timestamp);
+    time = time.format("HH:mm:ss");
+    return time;
+}
+
 function showTimeTillClosing(ordersData, currentTime) {
     // get closing time from database (it is only hour not timestamp)
     const closingHour = ordersData.bar.closingTime;
     const dateNow = dayjs().format("MM-DD-YYYY");
-    // console.log("now", dateNow);
+
     const closingTime = dayjs(
         `${dateNow} ${closingHour}`,
         "MM-DD-YYYY H:mm:SS"
@@ -53,3 +58,5 @@ function showTimeTillClosing(ordersData, currentTime) {
 }
 
 setInterval(getCurrentTime, 1000);
+
+export { changeTimestampToTime };

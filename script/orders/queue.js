@@ -1,3 +1,5 @@
+import { changeTimestampToTime } from "../modules/time-counting.js";
+
 const queueContainer = document.querySelector("#queue-orders");
 
 function clearQueue() {
@@ -13,19 +15,48 @@ function setupEventListener(container) {
 
 function showData(data) {
     let countOrders = 0;
-    console.log(data.orders.queue);
-    data.orders.queue.forEach((order) => {
+
+    data.orders.queue.forEach((element) => {
         // create some template etc... and append to queueContainer
         // let queue_template;
-        console.log(order);
-        queueContainer.innerHTML =
-            queueContainer.innerHTML + `<div>${JSON.stringify(order)}</div>`;
+
+        //grab the template
+        const queue_order_template = document.querySelector(
+            "template.queue-order-template"
+        ).content;
+
+        //clone it
+        const myCopy = queue_order_template.cloneNode(true);
+        //change content
+
+        myCopy.querySelector(".order-id").textContent = "#" + element.id;
+
+        const orderTimestamp = element.startTime;
+        const orderTime = changeTimestampToTime(orderTimestamp);
+        myCopy.querySelector(".order-time").textContent = orderTime;
+
+        // myCopy.querySelector(".order-details-row-name").src = element[0];
+
+        element.order.forEach((order) => {
+            console.log("ORDER ", order);
+            // TO DO
+            // count the same beers
+        });
+
+        // TO DO AFTER
+        //setting colour of circles for every beer
+        // setCirclesForBeers(data, myCopy);
+
+        //grab parent
+        const parent = document.querySelector("#queue-orders");
+        // console.log(parent)
+
+        //append
+        parent.appendChild(myCopy);
+
         // setupEventListener(queue_template)
         // setting event listeners on templates won't work unfortunately (it must be DOM object not Template object)
         // solution? create new loop on queueContainer childrens and add event listeners there
-        console.log("COSSS ", countOrders);
-        countOrders = countOrders + 1;
-        console.log("CO ", countOrders);
     });
     showOrderNr(countOrders);
 }
