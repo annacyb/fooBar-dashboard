@@ -32,8 +32,6 @@ async function showQueueData(data) {
         const orderTime = changeTimestampToTime(orderTimestamp);
         myCopy.querySelector(".order-time").textContent = orderTime;
 
-        // myCopy.querySelector(".order-details-row-name").src = element[0];
-
         element.order.forEach(async (orderName) => {
             const random = Math.floor(Math.random() * 100) + 1;
             console.log("ORDER ", random, orderName);
@@ -60,18 +58,21 @@ async function showQueueData(data) {
             ).textContent = orderName;
 
             //grab parent
-            // const orderContainer = document.querySelector(
-            //     ".order-details-place"
-            // );
+            const orderContainer = document.querySelector(
+                ".order-details-place"
+            );
 
             // CHECKING IF TEMPLATE IS APPENDING SOMEWHERE
-            const orderContainer = document.querySelector("#bartender-jonas");
+            // const orderContainer = document.querySelector("#bartender-jonas");
 
             //append order details
             orderContainer.appendChild(orderDetailsCopy);
 
             // TO DO
             // count the same beers
+
+            // counting orders in a queue
+            countOrders = countOrders + 1;
         });
 
         //grab parent
@@ -105,8 +106,8 @@ function showOrderNr(number) {
 async function setBeerMainColor(beerName) {
     // fetch data
     const dataWithColors = await getBeerMainColors();
-    console.log(dataWithColors);
 
+    // find the same beer name in JSON file and find it's color
     let found = dataWithColors.beers.filter((beer) => beer.name == beerName);
     if (found.length == 0) {
         console.log("Beer not found");
