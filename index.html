@@ -96,7 +96,8 @@
 
         <section id="queue-wrapper">
           <h2>Orders in queue: <span id="queue-nr">0</span></h2>
- 
+          
+          <!-- Template for orders in a queue -->
           <template class="queue-order-template">
             <div class="queue-order-wrapper">
               <div class="order-top-bar">
@@ -106,20 +107,26 @@
                   <p class="order-time">20:23:45</p>
                 </div>
               </div>
+              <!-- Placing here elements created on based on "queue-order-details-template" template -->
+              <div class="order-details-place"></div>
 
-              <div class="order-details">
-                <div class="order-details-row">
-                  <div class="order-details-row-color"></div>
-                  <p><span class="order-details-row-nr">1</span> x <span class="order-details-row-name">Githop</span></p>
-                </div>
-              </div>
               <button class="button-ready">READY</button>
             </div>
           </template>
 
-            <div id="queue-orders"></div>
-          
+          <!-- Template for order details (types of beers) in each order -->
+          <template id="queue-order-details-template">
+            <div class="order-details">
+              <div class="order-details-row">
+                <div class="order-details-row-color"></div>
+                <p><span class="order-details-row-nr">1</span> x <span class="order-details-row-name">Githop</span></p>
+              </div>
+            </div>
+          </template>
 
+          <!-- Placing here elements created on based on "queue-order-template" template -->
+          <div id="queue-orders-place"></div>
+          
         </section>
 
         <section id="bartenders-wrapper">
