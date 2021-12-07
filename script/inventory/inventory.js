@@ -1,5 +1,7 @@
 import { prepareBeerStock } from "./beer-stock";
 import { prepareTapStatus } from "./beer-tap";
+import { refresh_rate } from "../modules/settings";
+
 window.addEventListener("DOMContentLoaded", init);
 
 async function init() {
@@ -27,7 +29,7 @@ async function updateView() {
   prepareTapStatus(taps);
 
   // call update view every 5 seconds
-  setTimeout(updateView, 5000);
+  setTimeout(updateView, refresh_rate);
 }
 
 async function getData() {
@@ -37,4 +39,20 @@ async function getData() {
   const json = await response.json();
 
   return json;
+}
+
+async function loadData() {
+  data.beers = await get_beers();
+  data.orders = await get_orders();
+}
+
+function showData() {
+  showQueue(data);
+}
+
+async function loop() {
+  await loadData();
+  showData();
+
+  setTimeout(loop, refresh_rate);
 }

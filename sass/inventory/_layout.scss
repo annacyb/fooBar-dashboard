@@ -3,7 +3,6 @@
   h1 {
     text-align: center;
     padding: 1vw;
-    font-size: 1.7vw;
   }
 }
 
@@ -36,5 +35,8 @@
     grid-template-columns: 43% 54%;
     column-gap: 1.5%;
     row-gap: 2vw;
+    h1 {
+      font-size: 1.7vw;
+    }
   }
 }
