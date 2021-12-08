@@ -11,6 +11,7 @@
     "vite": "^2.6.4"
   },
   "dependencies": {
+    "chart.js": "^3.6.2",
     "dayjs": "^1.10.7"
   }
 }
