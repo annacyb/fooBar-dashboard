@@ -16,8 +16,9 @@ async function showTapStatus(beerObject) {
   const template = document.querySelector(".template-tap").content.cloneNode(true);
 
   const { level, capacity, beer } = beerObject;
+
   const beerColor = await setBeerGradient(beer);
-  console.log(beerColor);
+  // console.log(beerColor);
 
   //calculate the percentage with level and capacity
   template.querySelector(".tap-amount").textContent = Math.round((level / capacity) * 100) + "%";
