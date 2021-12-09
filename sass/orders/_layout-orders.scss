@@ -154,14 +154,6 @@
     margin-bottom: 5px;
 }
 
-.order-details-row-color {
-    height: 12px;
-    width: 12px;
-    background-color: rgb(62, 126, 194);
-    border-radius: 500px;
-    margin-right: 10px;
-}
-
 .button-ready {
     height: 40px;
     width: 90px;
@@ -275,6 +267,11 @@
     #queue-wrapper > #queue-orders {
         padding-left: 25px;
         padding-right: 25px;
+    }
+
+    .queue-order-wrapper {
+        margin-left: 25px;
+        margin-right: 25px;
     }
 
 

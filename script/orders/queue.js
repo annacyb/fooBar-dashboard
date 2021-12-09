@@ -47,14 +47,6 @@ async function showQueueData(data) {
                 queue_order_details_template.cloneNode(true);
 
             //change content
-            //setting colour of circles for every beer
-
-            // TO CHANGE - MAKE IT WORK AGAIN
-            // let beerColor = await setBeerMainColor(orderName);
-            // orderDetailsCopy.querySelector(
-            //     ".order-details-row-color"
-            // ).style.backgroundColor = beerColor;
-
             orderDetailsCopy.querySelector(
                 ".order-details-row-name"
             ).textContent = orderName;
