@@ -3,8 +3,7 @@ import { prepareTapStatus } from "./beer-tap";
 import { refresh_rate } from "../modules/settings";
 import { setBeerGradient } from "../modules/set-beer-color";
 import { countRevenue } from "../inventory/revenue";
-import { changeTimestampToHour, changeTimestampToTime } from "../modules/time-counting.js";
-import { build } from "vite";
+import { changeTimestampToTime } from "../modules/time-counting.js";
 
 // import { addData } from "./graph.js";
 // import { PrepareGraph } from "./graph.js";
@@ -39,9 +38,8 @@ async function loop() {
 }
 
 function resetLocalStorage(timestamp) {
-  let currentTime = changeTimestampToHour(timestamp);
-  if (currentTime === "22") {
-    localStorage.clear();
+  let currentTime = changeTimestampToTime(timestamp);
+  if (currentTime === "22:00:00") {
     console.log("closing time- reset");
   } else {
     console.log("not resetting");

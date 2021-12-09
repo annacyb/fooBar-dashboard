@@ -1,6 +1,6 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 import { changeTimestampToHour } from "../modules/time-counting.js";
-// import { addData } from "./graph";
+import { addData } from "./graph";
 let newestOrder = [1];
 const Order = {
   time: "",
@@ -51,8 +51,9 @@ async function orderDetails(orderObject, orders) {
 
   //get the time of the order
   const orderTimestamp = foundOrder.startTime;
-  const orderTime = changeTimestampToTime(orderTimestamp);
+  const orderTime = changeTimestampToHour(orderTimestamp);
   saveTheDetails(orderPrice, orderTime);
+  addData();
 }
 
 function countPrice(order) {
