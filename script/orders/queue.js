@@ -1,17 +1,10 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
-import { setBeerMainColor } from "../modules/set-beer-color.js";
 
+let indenticalBeersCounter = {};
 const queueContainer = document.querySelector("#queue-orders-place");
 
 function clearQueue() {
     queueContainer.innerHTML = "";
-}
-
-function setupEventListener(container) {
-    // Events for individual queue item
-    container.addEventListener("click", () => {
-        console.log("hey");
-    });
 }
 
 async function showQueueData(data) {
@@ -31,7 +24,6 @@ async function showQueueData(data) {
 
         //change content
         myCopy.querySelector(".order-id").textContent = "#" + element.id;
-
         const orderTimestamp = element.startTime;
         const orderTime = changeTimestampToTime(orderTimestamp);
         myCopy.querySelector(".order-time").textContent = orderTime;
@@ -57,8 +49,8 @@ async function showQueueData(data) {
             //append order details
             orderContainer.appendChild(orderDetailsCopy);
 
-            // TO DO
             // count the same beers
+            indenticalBeersCounter = countIdenticalBeers(orderName);
         });
 
         //grab parent
@@ -66,14 +58,29 @@ async function showQueueData(data) {
 
         //append
         parent.appendChild(myCopy);
+
+        //counting the same beers reset
+        console.log(indenticalBeersCounter);
+        indenticalBeersCounter = {};
     });
     showOrderNr(countOrders);
+}
+
+function countIdenticalBeers(beer) {
+    // hasOwnProperty - checks if key of beer exists in object
+    if (indenticalBeersCounter.hasOwnProperty(beer)) {
+        indenticalBeersCounter[beer] += 1;
+    } else {
+        indenticalBeersCounter[beer] = 1;
+    }
+    return indenticalBeersCounter;
 }
 
 function showQueue(data) {
     clearQueue();
     if (data.orders.queue.length == 0) {
         showMissingData();
+        indenticalBeersCounter = {};
     } else {
         showQueueData(data);
     }
