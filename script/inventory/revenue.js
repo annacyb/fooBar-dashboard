@@ -96,7 +96,7 @@ function showTheNumbers(order) {
   }
 
   if (localStorage.servedBeers) {
-    localStorage.servedBeers = Number(localStorage.servedCount) + orderLength;
+    localStorage.servedBeers = Number(localStorage.servedBeers) + orderLength;
     showBeersToday();
   } else {
     localStorage.servedBeers = 1;

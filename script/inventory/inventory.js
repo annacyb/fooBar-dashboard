@@ -34,7 +34,7 @@ function showData(data) {
   prepareBeerStock(data.storage);
   prepareTapStatus(data.taps);
   countRevenue(data.serving, data.timestamp);
-  // resetLocalStorage();
+  resetLocalStorage();
 }
 
 async function loop() {
@@ -43,11 +43,13 @@ async function loop() {
   setTimeout(loop, refresh_rate);
 }
 
-// function resetLocalStorage() {
-//   if (hours >= 20 || hours < 9) {
-//     console.log("closing time- reset");
-//     localStorage.clear();
-//   } else {
-//     console.log("not resetting");
-//   }
-// }
+function resetLocalStorage() {
+  if (hours >= 22 || hours < 9) {
+    console.log("closing time- reset");
+    document.querySelector(".nr-served-today").textContent = "THE BAR IS CLOSED";
+    document.querySelector(".beer-served-today").textContent = "THE BAR IS CLOSED";
+    localStorage.clear();
+  } else {
+    console.log("not resetting");
+  }
+}
