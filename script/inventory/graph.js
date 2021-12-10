@@ -4,44 +4,70 @@ import { dataForChart } from "./revenue";
 
 const ctx = document.getElementById("myChart");
 
-// console.log("GRAFFFF", values);
+const now = new Date();
+const hours = now.getHours();
+
+const labels = [];
+
+const data = [];
+
+for (let i = 0; i < hours; i++) {
+  labels.push(i);
+
+  data.push(Math.floor(Math.random() * 15000));
+}
+
+console.log(labels, data);
 
 const myChart = new Chart(ctx, {
   type: "line",
   data: {
-    labels: [0],
+    labels: labels,
     datasets: [
       {
-        label: "Revenue",
-        data: [0],
+        label: "amount earned in DKK",
+        data: data,
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
       },
     ],
   },
+  options: {
+    interaction: {
+      aspectRatio: 150,
+    },
+  },
 });
 
-export function addData() {
-  const values = dataForChart.map((x) => x.price);
+export function prepareChartData(dataForChart) {
+  console.log(dataForChart);
+  dataForChart.forEach((object) => {
+    updateChart(object);
+  });
+}
 
-  const labels = dataForChart.map((x) => x.time);
-  // console.log(labels[labels.length - 1]);
-  if (labels.length > 1) {
-    if (labels[labels.length - 1] != labels[labels.length - 2]) {
-      myChart.data.labels.push(labels[labels.length]);
-    } else {
-      console.log("nie dodaje");
-    }
+function updateChart(object) {
+  if (myChart.data.datasets[0].data[Number(object.time)] != null) {
+    myChart.data.datasets[0].data[Number(object.time)] = object.price; // Would update the first dataset's value of 'March' to be 50
+    myChart.update();
   } else {
-    myChart.data.labels.push(labels);
+    addData(object);
   }
+} // }
 
-  // myChart.data.push(sumall);
-  // console.log("adding new data to chart");
+function addData(object) {
+  const { time, price } = object;
+
+  console.log("LABEL", time);
+  console.log("PRICE", price);
+
+  myChart.data.labels.push(time);
 
   myChart.data.datasets.forEach((dataset) => {
-    dataset.data.push(values);
+    dataset.data.push(price);
   });
   myChart.update();
 }
+
+myChart.canvas.parentNode.style.height = "20vw";

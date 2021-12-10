@@ -22,7 +22,6 @@
     grid-column: 2 / span 1;
 
     align-self: center;
-    white-space: nowrap;
 }
 
 #cont-closing-time {
@@ -68,10 +67,6 @@
 @media only screen and (max-width: 1000px) {
     #closing-in {
         display: none;
-    }
-
-    #web-title {
-        font-size: 1.3rem;
     }
 }
 
