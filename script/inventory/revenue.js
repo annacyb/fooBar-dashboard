@@ -2,6 +2,19 @@ import { changeTimestampToTime } from "../modules/time-counting.js";
 import { changeTimestampToHour } from "../modules/time-counting.js";
 import { prepareChartData } from "./graph";
 let newestOrder = [0];
+
+// const today = new Date();
+
+// const date = today.getDate();
+// const month = today.getUTCMonth();
+// const monthString = JSON.stringify(month);
+// const dateString = JSON.stringify(date);
+// let data = dateString;
+// data += monthString;
+// console.log("THE day IS", data);
+
+// localStorage.setItem(date, 13);
+
 const Order = {
   time: "",
   price: "",
@@ -24,12 +37,6 @@ export function countRevenue(orders) {
       newestOrder.unshift(newestCustomer);
       console.log("new order:", newestOrder[0]);
       orderDetails(newestCustomer, orders);
-      if (localStorage.servedCount) {
-        localStorage.servedCount = Number(localStorage.servedCount) + 1;
-        showOrdersToday();
-      } else {
-        localStorage.servedCount = 1;
-      }
     }
     //if not NO NEW ORDERS
     else {
@@ -48,18 +55,25 @@ async function orderDetails(orderObject, orders) {
 
   //count the price of the order
   const orderPrice = countPrice(foundOrder.order);
-
+  console.log(orderPrice);
   //get the time of the order
   const orderTimestamp = foundOrder.startTime;
   const orderTime = changeTimestampToHour(orderTimestamp);
+
   createOrderObject(orderPrice, orderTime);
   prepareChartData(editedDataForChart);
+  showTheNumbers(foundOrder.order);
 }
 
 function countPrice(order) {
   // console.log(order.length);
   return order.length * 40;
 }
+
+// function getLength(order) {
+//   console.log(order.length);
+//   return order.length;
+// }
 
 function createOrderObject(orderPrice, orderTime) {
   const addOrder = Object.create(Order);
@@ -71,8 +85,30 @@ function createOrderObject(orderPrice, orderTime) {
   combineObject();
 }
 
+function showTheNumbers(order) {
+  const orderLength = order.length;
+
+  if (localStorage.servedCount) {
+    localStorage.servedCount = Number(localStorage.servedCount) + 1;
+    showOrdersToday();
+  } else {
+    localStorage.servedCount = 1;
+  }
+
+  if (localStorage.servedBeers) {
+    localStorage.servedBeers = Number(localStorage.servedCount) + orderLength;
+    showBeersToday();
+  } else {
+    localStorage.servedBeers = 1;
+  }
+}
+
 function showOrdersToday() {
   document.querySelector(".nr-served-today").textContent = localStorage.servedCount;
+}
+
+function showBeersToday() {
+  document.querySelector(".beer-served-today").textContent = localStorage.servedBeers;
 }
 
 //SUMING UP THE PRICES WITH THAT HAVE THE  SAME TIME

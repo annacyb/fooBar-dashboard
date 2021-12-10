@@ -17,7 +17,7 @@ for (let i = 0; i < hours; i++) {
   data.push(Math.floor(Math.random() * 15000));
 }
 
-console.log(labels, data);
+// console.log(labels, data);
 
 const myChart = new Chart(ctx, {
   type: "line",
@@ -34,14 +34,12 @@ const myChart = new Chart(ctx, {
     ],
   },
   options: {
-    interaction: {
-      aspectRatio: 150,
-    },
+    aspectRatio: 600 / 280,
   },
 });
 
 export function prepareChartData(dataForChart) {
-  console.log(dataForChart);
+  // console.log(dataForChart);
   dataForChart.forEach((object) => {
     updateChart(object);
   });
@@ -59,8 +57,8 @@ function updateChart(object) {
 function addData(object) {
   const { time, price } = object;
 
-  console.log("LABEL", time);
-  console.log("PRICE", price);
+  // console.log("LABEL", time);
+  // console.log("PRICE", price);
 
   myChart.data.labels.push(time);
 
