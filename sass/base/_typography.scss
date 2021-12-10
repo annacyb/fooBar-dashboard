@@ -1,4 +1,6 @@
+@use "./colors";
 @import url("https://fonts.googleapis.com/css2?family=Bigshot+One&family=Public+Sans&display=swap");
+
 
 html {
   font-size: 100%;
@@ -12,11 +14,13 @@ h5,
 h6,
 p, button {
   font-family: "Open Sans", sans-serif;
+  color: colors.$blue-color4;
 }
 
 li,
 a {
   font-family: "Open Sans", sans-serif;
+  color: colors.$blue-color4;
 }
 
 //TO CHANGE- possibly change the main font to something else
