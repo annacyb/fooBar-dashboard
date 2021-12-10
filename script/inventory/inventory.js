@@ -27,7 +27,7 @@ function showData(data) {
   prepareBeerStock(data.storage);
   prepareTapStatus(data.taps);
   countRevenue(data.serving, data.timestamp);
-  resetLocalStorage(data.timestamp);
+  // resetLocalStorage(data.timestamp);
   // showOrdersToday();
 }
 
@@ -37,11 +37,11 @@ async function loop() {
   setTimeout(loop, refresh_rate);
 }
 
-function resetLocalStorage(timestamp) {
-  let currentTime = changeTimestampToTime(timestamp);
-  if (currentTime === "22:00:00") {
-    console.log("closing time- reset");
-  } else {
-    console.log("not resetting");
-  }
-}
+// function resetLocalStorage(timestamp) {
+//   let currentTime = changeTimestampToTime(timestamp);
+//   if (currentTime === "22:00:00") {
+//     console.log("closing time- reset");
+//   } else {
+//     console.log("not resetting");
+//   }
+// }

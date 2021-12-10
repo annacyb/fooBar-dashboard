@@ -1,7 +1,7 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 import { changeTimestampToHour } from "../modules/time-counting.js";
-import { addData } from "./graph";
-let newestOrder = [1];
+import { prepareChartData } from "./graph";
+let newestOrder = [0];
 const Order = {
   time: "",
   price: "",
@@ -52,8 +52,8 @@ async function orderDetails(orderObject, orders) {
   //get the time of the order
   const orderTimestamp = foundOrder.startTime;
   const orderTime = changeTimestampToHour(orderTimestamp);
-  saveTheDetails(orderPrice, orderTime);
-  addData();
+  createOrderObject(orderPrice, orderTime);
+  prepareChartData(editedDataForChart);
 }
 
 function countPrice(order) {
@@ -61,19 +61,21 @@ function countPrice(order) {
   return order.length * 40;
 }
 
-function saveTheDetails(orderPrice, orderTime) {
+function createOrderObject(orderPrice, orderTime) {
   const addOrder = Object.create(Order);
   addOrder.price = orderPrice;
   addOrder.time = orderTime;
 
   dataForChart.unshift(addOrder);
-  console.log(dataForChart);
+  // console.log(dataForChart);
   combineObject();
 }
 
 function showOrdersToday() {
   document.querySelector(".nr-served-today").textContent = localStorage.servedCount;
 }
+
+//SUMING UP THE PRICES WITH THAT HAVE THE  SAME TIME
 
 function combineObject() {
   const grouped = dataForChart.reduce((all, { time: c, price: a }) => ({ ...all, [c]: (all[c] || 0) + a }), {});
