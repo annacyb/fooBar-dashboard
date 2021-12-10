@@ -14,7 +14,7 @@ const data = [];
 for (let i = 0; i < hours; i++) {
   labels.push(i);
 
-  data.push(Math.floor(Math.random() * 1000));
+  data.push(Math.floor(Math.random() * 15000));
 }
 
 console.log(labels, data);
@@ -25,13 +25,18 @@ const myChart = new Chart(ctx, {
     labels: labels,
     datasets: [
       {
-        label: "Revenue",
+        label: "amount earned in DKK",
         data: data,
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
       },
     ],
+  },
+  options: {
+    interaction: {
+      aspectRatio: 150,
+    },
   },
 });
 
@@ -64,3 +69,5 @@ function addData(object) {
   });
   myChart.update();
 }
+
+myChart.canvas.parentNode.style.height = "20vw";
