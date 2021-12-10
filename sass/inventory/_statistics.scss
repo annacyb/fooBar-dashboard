@@ -1,0 +1,17 @@
+@use '../base/colors';
+
+#chart-box {
+  padding: 1vw;
+  height: 10vw;
+  border-radius: 10px;
+  box-shadow: colors.$box-shadow;
+  background-color: white;
+}
+#served-today {
+  p {
+    text-align: center;
+    font-size: 3vw;
+    font-weight: 600;
+    color: colors.$blue-color4;
+  }
+}

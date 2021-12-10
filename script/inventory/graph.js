@@ -28,7 +28,7 @@ const myChart = new Chart(ctx, {
         label: "amount earned in DKK",
         data: data,
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "#F9AB3D",
         tension: 0.1,
       },
     ],
