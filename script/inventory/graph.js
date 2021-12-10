@@ -3,17 +3,30 @@ import { editedDataForChart } from "./revenue";
 import { dataForChart } from "./revenue";
 
 const ctx = document.getElementById("myChart");
-// console.log("GRAFFFF", values);
+
 const now = new Date();
 const hours = now.getHours();
+
+const labels = [];
+
+const data = [];
+
+for (let i = 0; i < hours; i++) {
+  labels.push(i);
+
+  data.push(Math.floor(Math.random() * 1000));
+}
+
+console.log(labels, data);
+
 const myChart = new Chart(ctx, {
   type: "line",
   data: {
-    labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    labels: labels,
     datasets: [
       {
         label: "Revenue",
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        data: data,
         fill: false,
         borderColor: "rgb(75, 192, 192)",
         tension: 0.1,
@@ -45,9 +58,6 @@ function addData(object) {
   console.log("PRICE", price);
 
   myChart.data.labels.push(time);
-
-  // myChart.data.push(sumall);
-  // console.log("adding new data to chart");
 
   myChart.data.datasets.forEach((dataset) => {
     dataset.data.push(price);
