@@ -17,15 +17,15 @@
   font-size: 1.2rem;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #6E9BBC;
   width: calc((100vw - 100px)/5);
   text-align-last: center;
 }
 
 .selectedTab {
-  border-bottom: 2px solid black !important;
+  border-bottom: 2px solid #F9AB3D !important;
   font-weight: 500;
-  background-color: rgb(245, 245, 245);
+  background-color: #fff7ec;
 }
 
 

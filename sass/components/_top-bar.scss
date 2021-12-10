@@ -11,7 +11,7 @@
     left: 0;
     z-index: 999;
 
-    border-bottom: grey 1px solid;
+    border-bottom: #6E9BBC 1px solid;
 
     display: grid;
     grid-template-columns: 140px 0.5fr 0.3fr auto 60px auto 0px;
@@ -36,7 +36,7 @@
     grid-column: 5 / span 1;
     width: 1px;
     height: 25px;
-    background-color: black;
+    background-color: #6E9BBC;
     opacity: 70%;
     align-self: center;
     justify-self: center;
