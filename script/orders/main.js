@@ -2,6 +2,7 @@ import { tabs } from "../modules/tabs.js";
 import { refresh_rate } from "../modules/settings.js";
 import { get_orders, get_beers } from "../modules/api.js";
 import { showQueue } from "./queue.js";
+import { showBartendersOrders } from "./bartenders-orders.js";
 window.addEventListener("DOMContentLoaded", start);
 
 const data = {
@@ -10,13 +11,7 @@ const data = {
 };
 
 async function start() {
-    // tabs();
-    setupEventListeners();
     loop();
-}
-
-function setupEventListeners() {
-    // TODO
 }
 
 async function loadData() {
@@ -26,6 +21,7 @@ async function loadData() {
 
 function showData() {
     showQueue(data);
+    showBartendersOrders(data);
 }
 
 async function loop() {

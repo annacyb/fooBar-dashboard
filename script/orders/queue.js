@@ -2,6 +2,20 @@ import { changeTimestampToTime } from "../modules/time-counting.js";
 
 const queueContainer = document.querySelector("#queue-orders-place");
 
+function showQueue(data) {
+    clearQueue();
+    if (data.orders.queue.length == 0) {
+        showMissingData();
+    } else {
+        showQueueData(data);
+    }
+}
+
+function showMissingData() {
+    queueContainer.innerHTML = "<p>No orders to show</p>";
+    showOrderNr(0);
+}
+
 async function showQueueData(data) {
     let countOrders = 0;
 
@@ -92,20 +106,6 @@ function createOrderDetailsView(indenticalBeersCounter, myCopy) {
 
 function clearQueue() {
     queueContainer.innerHTML = "";
-}
-
-function showQueue(data) {
-    clearQueue();
-    if (data.orders.queue.length == 0) {
-        showMissingData();
-    } else {
-        showQueueData(data);
-    }
-}
-
-function showMissingData() {
-    queueContainer.innerHTML = "<p>No orders in queue to show</p>";
-    showOrderNr(0);
 }
 
 function showOrderNr(number) {
