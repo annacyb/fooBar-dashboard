@@ -1,10 +1,12 @@
 @use '../base/colors';
 #inventory {
   background: linear-gradient(180deg, white 0%, #d9e4ed 100%);
-  height: 100vh;
+  background-size: cover;
 }
+
 #storage {
   margin-top: 80px;
+  // margin-bottom: 100px;
   h1 {
     text-align: center;
     padding: 1vw;
@@ -12,38 +14,32 @@
   }
 }
 
+.areas {
+  margin-top: 5vw;
+}
+
 //WHAT TO DO ABOUT THE LINE BREAK ORDERS SERVED TODAY BEER SERVED TODAY
-#served-today,
-#revenue-today {
-  h1 {
-    height: 4vw;
-  }
-}
+// #served-today,
+// #revenue-today {
+//   h1 {
+//     height: 4vw;
+//   }
+// }
 
-#served-today {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 1vw;
-  div {
-    width: 18vw;
-  }
-  p {
-    padding: 1vw;
-    height: 10vw;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: colors.$box-shadow;
-  }
-}
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
   main {
     margin-left: 100px;
+  }
+  #top-bar > h1 {
+    width: 40vw;
+    font-size: 1.2rem;
   }
 }
 
 @media screen and (min-width: 900px) {
+  main {
+    margin-left: 100px;
+  }
   #storage {
     margin-left: 20px;
     margin-top: 75px;
@@ -54,5 +50,13 @@
     h1 {
       font-size: 1.7vw;
     }
+  }
+
+  #inventory {
+    height: 100vh;
+    margin-bottom: 5vw;
+  }
+  .areas {
+    margin-top: 0vw;
   }
 }

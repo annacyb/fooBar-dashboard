@@ -6,7 +6,7 @@
     margin-right: auto;
     height: 75vw;
     width: 90%;
-    padding: 1vw 1vw 1vw 0.3vw;
+    padding: 1vw 1vw 1vw 1vw;
     border-radius: 10px;
     background-color: white;
     box-shadow: colors.$box-shadow;
@@ -41,9 +41,11 @@
     ul {
       margin-left: auto;
       margin-right: auto;
-      height: 35vw;
+      height: 40vw;
       width: 90%;
       grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: center;
+      padding-top: 2.5vw;
     }
   }
   .stock-name {
