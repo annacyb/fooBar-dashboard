@@ -40,10 +40,11 @@
     margin-bottom: 15px;
 
     border-radius: 5px 5px 10px 10px;
-    box-shadow: 0px 3px 10px 1px rgba(110,155,188,0.3);;
+    box-shadow: 0px 3px 10px 1px rgba(110,155,188,0.3);
 
     max-width: 420px;
 }
+
 
 // bartender
 
@@ -58,7 +59,7 @@
 }
 
 .bartender-cont {
-    // height: 300px;
+    min-height: 300px;
 
     width: 47%;
     min-width: 350px;
@@ -99,7 +100,7 @@
 }
 
 .top-bar-line {
-    height: 4px;
+    height: 3px;
     width: 100%;
     // background-color: $orange-color2;
     background-color: #FFC778;
@@ -116,6 +117,7 @@
     border-radius: 500px;
     filter: grayscale(1);
     margin-right: 15px;
+    box-shadow: 0px 3px 5px 1px rgb(110 155 188 / 50%);
 }
 
 .button-break {
@@ -175,7 +177,7 @@
 }
 
 .order-top-bar > div > p {
-    margin-left: 10px;
+    margin-left: 7px;
 }
 
 .order-details {
@@ -188,14 +190,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 5px;
-}
-
-.order-details-row-color {
-    height: 12px;
-    width: 12px;
-    background-color: rgb(62, 126, 194);
-    border-radius: 500px;
-    margin-right: 10px;
+    margin-left: 25px;
 }
 
 .button-ready {
@@ -203,6 +198,10 @@
     width: 90px;
     margin-top: 20px;
     margin-left: 25px;
+
+    border: 1.5px solid #6E9BBC;
+    background-color: white;
+    border-radius: 7px;
 }
 
 .flex {
@@ -296,7 +295,6 @@
 
     #orders-content {
         margin-top: 0px;
-        height: calc(100vh - 125px);
     }
 
     .queue-order-wrapper {
@@ -312,6 +310,8 @@
     #orders-content {
         margin-left: 0px;
         justify-content: center;
+        height: fit-content;
+        padding-bottom: 50px;
     }
 
     #bartenders-wrapper {
@@ -336,6 +336,12 @@
         padding-left: 25px;
         padding-right: 25px;
     }
+
+    #queue-orders-place {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    
 
 
   }
