@@ -1,78 +1,64 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 
-const bartendersCurrentOrder = {
-    dannie: "",
-    jonas: "",
-    klaus: "",
-    peter: "",
-};
-
 function showBartendersOrders(data) {
-    const bartenders = data.orders.bartenders;
-    bartenders.forEach((bartender) => {
-        if (bartender.status === "WORKING") {
-            // names are in order of elements created in html in "section#bartenders-wrapper"
-            showOrders(bartender, "Dannie", data);
-            showOrders(bartender, "Jonas", data);
-            showOrders(bartender, "Klaus", data);
-            showOrders(bartender, "Peter", data);
-        }
+    clearOrders();
+    data.orders.bartenders.forEach((bartender) => {
+        showOrders(bartender, data.orders.servings);
     });
 }
 
-function showOrders(bartender, name, data) {
-    if (bartender.name === name) {
-        const lowercaseName = name.toLowerCase();
-        const bartenderWrapper = document.querySelector(
-            `#bartender-${lowercaseName}`
-        );
+function clearOrders() {
+    const bartenders = ["dannie", "peter", "klaus", "jonas"];
+    bartenders.forEach((name) => {
+        const bartenderWrapper = document.querySelector(`#bartender-${name}`);
         const templatePlace = bartenderWrapper.querySelector(
             ".queue-orders-place"
         );
-        const orderId = bartender.servingCustomer;
+        templatePlace.innerHTML = "";
+    });
+}
 
-        data.orders.serving.forEach((orderDetails) => {
-            if (
-                orderDetails.id === orderId &&
-                orderDetails.id != bartendersCurrentOrder[lowercaseName]
-            ) {
-                //removing previous order
-                templatePlace.innerHTML = "";
+function showOrders(bartender, servings) {
+    const lowercaseName = bartender.name.toLowerCase();
+    const bartenderWrapper = document.querySelector(
+        `#bartender-${lowercaseName}`
+    );
+    const templatePlace = bartenderWrapper.querySelector(".queue-orders-place");
+    const orderId = bartender.servingCustomer;
 
-                //grab the template for order in a queue
-                const order_template = document.querySelector(
-                    "template.bartenders-order-template"
-                ).content;
+    const matchedOrders = servings.filter((order) => order.id == orderId);
+    if (matchedOrders.length == 1) {
+        let orderDetails = matchedOrders[0];
+        // removing previous order
+        templatePlace.innerHTML = "";
 
-                //clone it
-                const myCopy = order_template.cloneNode(true);
+        const order_template = document.querySelector(
+            "template.bartenders-order-template"
+        ).content;
 
-                //change content
-                myCopy.querySelector(".order-id").textContent = "#" + orderId;
-                const orderTimestamp = orderDetails.startTime;
-                const orderTime = changeTimestampToTime(orderTimestamp);
-                myCopy.querySelector(".order-time").textContent = orderTime;
+        // clone it
+        const myCopy = order_template.cloneNode(true);
 
-                // TO DO
-                // orderDetails.order.forEach((beer) => {}
-                // const indenticalBeersCounter = countIdenticalBeers(orderElement.order);
-                // createOrderDetailsView(indenticalBeersCounter, myCopy);
+        //change content
+        myCopy.querySelector(".order-id").textContent = "#" + orderId;
+        const orderTimestamp = orderDetails.startTime;
+        const orderTime = changeTimestampToTime(orderTimestamp);
+        myCopy.querySelector(".order-time").textContent = orderTime;
 
-                //grab parent
-                const parent = templatePlace;
+        // TO DO
+        // orderDetails.order.forEach((beer) => {}
+        // const indenticalBeersCounter = countIdenticalBeers(orderElement.order);
+        // createOrderDetailsView(indenticalBeersCounter, myCopy);
 
-                //append
-                parent.appendChild(myCopy);
+        //grab parent
+        const parent = templatePlace;
 
-                //NEW
-                bartendersCurrentOrder[lowercaseName] = orderId;
-
-                // add += 1 do counting orders per bartender
-            } else {
-                // TO DO
-                templatePlace.innerHTML = "<p>No orders to show</p>";
-            }
-        });
+        //append
+        parent.appendChild(myCopy);
+    } else if (matchedOrders.length == 0) {
+        templatePlace.innerHTML = "<p>No orders to show</p>";
+    } else {
+        templatePlace.innerHTML = "ERROR CANNOT SERVE MORE THAN 1 ORDER";
     }
 }
 
