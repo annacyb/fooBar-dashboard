@@ -81,35 +81,40 @@
       </div>
 
       <section id="storage">
-        <div class="tap-list-container">
+        <div class="tap-list-container areas">
           <h1>BEER TAPS</h1>
           <ul class="tap-list">
             TAP STOCK HERE
           </ul>
         </div>
 
-        <div class="list">
+        <div class="list areas">
           <h1>STORAGE</h1>
           <ul class="stock-list">
             BEER STOCK HERE
           </ul>
         </div>
 
-        <div id="served-today">
-          <div>
-            <h1>ORDERS SERVED TODAY</h1>
-            <p class="nr-served-today">number of orders served today</p>
-          </div>
-          <div>
-            <h1>BEER SERVED TODAY</h1>
-            <p class="beer-served-today">number of orders served today</p>
+        <div class="areas">
+          <h1>SERVED TODAY</h1>
+          <div id="served-today">
+            <div>
+              <h2 class="nr-served-today">number of orders served today</h2>
+              <p class="served-today-text">ORDERS</p>
+            </div>
+            <div>
+              <h2 class="beer-served-today">number of orders served today</h2>
+              <p class="served-today-text">BEERS</p>
+            </div>
           </div>
         </div>
-
-        <div id="revenue-today">
+        <div class="areas">
           <h1>REVENUE TODAY</h1>
-
-          <div id="chart-box"><canvas id="myChart"></canvas></div>
+          <div id="revenue-today-wrap">
+            <div id="revenue-today">
+              <div id="chart-box"><canvas id="myChart"></canvas></div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

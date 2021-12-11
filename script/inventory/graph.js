@@ -37,7 +37,8 @@ const myChart = new Chart(ctx, {
     ],
   },
   options: {
-    aspectRatio: 600 / 280,
+    maintainAspectRatio: false,
+    aspectRatio: 600 / 250,
   },
 });
 
