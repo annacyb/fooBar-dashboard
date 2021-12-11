@@ -1,23 +1,11 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
-import { setBeerMainColor } from "../modules/set-beer-color.js";
 
 const queueContainer = document.querySelector("#queue-orders-place");
-
-function clearQueue() {
-    queueContainer.innerHTML = "";
-}
-
-function setupEventListener(container) {
-    // Events for individual queue item
-    container.addEventListener("click", () => {
-        console.log("hey");
-    });
-}
 
 async function showQueueData(data) {
     let countOrders = 0;
 
-    data.orders.queue.forEach(async (element) => {
+    data.orders.queue.forEach(async (orderElement) => {
         // counting orders in a queue
         countOrders = countOrders + 1;
 
@@ -30,44 +18,14 @@ async function showQueueData(data) {
         const myCopy = queue_order_template.cloneNode(true);
 
         //change content
-        myCopy.querySelector(".order-id").textContent = "#" + element.id;
-
-        const orderTimestamp = element.startTime;
+        myCopy.querySelector(".order-id").textContent = "#" + orderElement.id;
+        const orderTimestamp = orderElement.startTime;
         const orderTime = changeTimestampToTime(orderTimestamp);
         myCopy.querySelector(".order-time").textContent = orderTime;
 
-        element.order.forEach(async (orderName) => {
-            //grab the template for order details
-            const queue_order_details_template = document.querySelector(
-                "template.queue-order-details-template"
-            ).content;
+        const indenticalBeersCounter = countIdenticalBeers(orderElement.order);
 
-            //clone it
-            const orderDetailsCopy =
-                queue_order_details_template.cloneNode(true);
-
-            //change content
-            //setting colour of circles for every beer
-
-            // TO CHANGE - MAKE IT WORK AGAIN
-            // let beerColor = await setBeerMainColor(orderName);
-            // orderDetailsCopy.querySelector(
-            //     ".order-details-row-color"
-            // ).style.backgroundColor = beerColor;
-
-            orderDetailsCopy.querySelector(
-                ".order-details-row-name"
-            ).textContent = orderName;
-
-            //grab parent
-            const orderContainer = myCopy.querySelector(".order-details-place");
-
-            //append order details
-            orderContainer.appendChild(orderDetailsCopy);
-
-            // TO DO
-            // count the same beers
-        });
+        createOrderDetailsView(indenticalBeersCounter, myCopy);
 
         //grab parent
         const parent = document.querySelector("#queue-orders-place");
@@ -76,6 +34,64 @@ async function showQueueData(data) {
         parent.appendChild(myCopy);
     });
     showOrderNr(countOrders);
+}
+
+function countIdenticalBeers(order) {
+    let counter = {};
+    order.forEach((beer) => {
+        // hasOwnProperty - checks if key of beer exists in object
+        if (counter.hasOwnProperty(beer)) {
+            counter[beer] += 1;
+        } else {
+            counter[beer] = 1;
+        }
+    });
+    return counter;
+}
+
+function showOrderDetails(counterObject, templateCopy) {
+    Object.entries(counterObject).forEach(([key, value]) => {
+        const orderDetailsBeerCopy = templateCopy
+            .querySelector(".order-details-row")
+            .cloneNode(true);
+
+        orderDetailsBeerCopy.querySelector(
+            ".order-details-row-name"
+        ).textContent = key;
+
+        orderDetailsBeerCopy.querySelector(
+            ".order-details-row-nr"
+        ).textContent = value + " x ";
+
+        // grab parent
+        const parent = templateCopy;
+
+        // append
+        parent.appendChild(orderDetailsBeerCopy);
+    });
+}
+
+function createOrderDetailsView(indenticalBeersCounter, myCopy) {
+    //grab the template for order details
+    const queue_order_details_template = document.querySelector(
+        "template.queue-order-details-template"
+    ).content;
+
+    //clone it
+    const orderDetailsCopy = queue_order_details_template.cloneNode(true);
+
+    //change content
+    showOrderDetails(indenticalBeersCounter, orderDetailsCopy);
+
+    //grab parent
+    const orderContainer = myCopy.querySelector(".order-details-place");
+
+    //append order details
+    orderContainer.appendChild(orderDetailsCopy);
+}
+
+function clearQueue() {
+    queueContainer.innerHTML = "";
 }
 
 function showQueue(data) {
