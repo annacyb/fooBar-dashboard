@@ -3,7 +3,7 @@ import { changeTimestampToTime } from "../modules/time-counting.js";
 function showBartendersOrders(data) {
     clearOrders();
     data.orders.bartenders.forEach((bartender) => {
-        showOrders(bartender, data.orders.servings);
+        showOrders(bartender, data.orders.serving);
     });
 }
 
