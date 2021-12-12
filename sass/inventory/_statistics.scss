@@ -48,10 +48,6 @@
 }
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
-  #inventory {
-    margin-bottom: 5vw;
-  }
-
   #chart-box {
     padding: 1vw 1vw 2.5vw 1vw;
     height: 35vw !important;
@@ -85,7 +81,7 @@
 @media screen and (min-width: 900px) {
   #chart-box {
     padding: 1vw 1vw 2.5vw 1vw;
-    height: 18vw !important;
+    height: 16.5vw !important;
     width: auto;
     margin-left: 0;
   }
@@ -103,11 +99,11 @@
     div {
       width: 20vw;
       text-align: center;
-      height: 19.5vw;
+      height: 18vw;
       padding: 1vw;
     }
     h2 {
-      font-size: 3.5vw;
+      font-size: 4vw;
       font-weight: 600;
       color: colors.$blue-color4;
     }

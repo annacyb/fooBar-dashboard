@@ -2,31 +2,28 @@
 #inventory {
   background: linear-gradient(180deg, white 0%, #d9e4ed 100%);
   background-size: cover;
+  margin-bottom: 30vw;
 }
 
-#storage {
+#storageAndStat {
   margin-top: 80px;
   // margin-bottom: 100px;
-  h1 {
-    text-align: center;
-    padding: 1vw;
-    font-weight: 400;
-  }
 }
 
 .areas {
   margin-top: 5vw;
 }
 
-//WHAT TO DO ABOUT THE LINE BREAK ORDERS SERVED TODAY BEER SERVED TODAY
-// #served-today,
-// #revenue-today {
-//   h1 {
-//     height: 4vw;
-//   }
-// }
+@keyframes run {
+  50% {
+    transform: translateX(2vw);
+  }
+}
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
+  #inventory {
+    margin-bottom: 5vw;
+  }
   main {
     margin-left: 100px;
   }
@@ -34,21 +31,26 @@
     width: 40vw;
     font-size: 1.2rem;
   }
+  #storageAndStat {
+    h1 {
+      padding: 2vw;
+    }
+  }
 }
 
 @media screen and (min-width: 900px) {
   main {
     margin-left: 100px;
   }
-  #storage {
+  #storageAndStat {
     margin-left: 20px;
-    margin-top: 75px;
+    margin-top: 70px;
     display: grid;
     grid-template-columns: 43% 54%;
     column-gap: 1.5%;
-    row-gap: 2vw;
+    row-gap: 1vw;
     h1 {
-      font-size: 1.7vw;
+      padding: 1vw;
     }
   }
 

@@ -44,8 +44,8 @@
       height: 40vw;
       width: 90%;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      justify-content: center;
-      padding-top: 2.5vw;
+      margin-top: auto;
+      margin-bottom: auto;
     }
   }
   .stock-name {
@@ -53,7 +53,7 @@
   }
 
   .stock-amount {
-    font-size: 5vw;
+    font-size: 5.5vw;
   }
   .stock-info-wrap {
     padding-top: 1.3vw;
@@ -78,8 +78,7 @@
 
   .stock-amount {
     text-align: center;
-    font-size: 3vw;
-    font-weight: 600;
+    font-size: 3.5vw;
     width: 4vw;
     height: 5vw;
   }
