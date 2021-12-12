@@ -170,12 +170,38 @@ function checkMediaQueries() {
             addTabsEventListeners();
         } else {
             console.log("Screen is MORE THAN 900");
+            deleteDisplayNoneClasses();
+            // TO DO - reset tab classes so that queue will be selected
         }
     }
 
     // event to watch the media query
     check();
     window.matchMedia(media_query).addEventListener("change", check);
+}
+
+function deleteDisplayNoneClasses() {
+    if (document.querySelector("#queue-wrapper").classList.length > 0) {
+        document
+            .querySelector("#queue-wrapper")
+            .classList.remove("displayNone");
+    }
+
+    if (document.querySelector("#bartenders-wrapper").classList.length > 0) {
+        document
+            .querySelector("#bartenders-wrapper")
+            .classList.remove("displayNone");
+    }
+
+    const bartenders = ["dannie", "jonas", "klaus", "peter"];
+
+    bartenders.forEach((name) => {
+        if (document.querySelector(`#bartender-${name}`).classList.length > 0) {
+            document
+                .querySelector(`#bartender-${name}`)
+                .classList.remove("displayNone");
+        }
+    });
 }
 
 export { showBartendersOrders, checkMediaQueries };

@@ -45,6 +45,10 @@
     max-width: 420px;
 }
 
+.displayNone {
+    display: none !important;
+}
+
 
 // bartender
 
@@ -287,9 +291,9 @@
 
 // when TABS are appearing
 @media screen and (max-width: 900px) {
-    #bartenders-wrapper {
-        display: none;
-    }
+    // #bartenders-wrapper {
+    //     display: none;
+    // }
 
     #queue-wrapper {
         min-width: calc(100vw - 155px);
@@ -309,6 +313,10 @@
 
 
 @media screen and (max-width: 600px) {
+    #bartenders-wrapper {
+        display: block;
+    }
+
     #main-orders {
         margin-left: 0px;
     }
