@@ -156,4 +156,24 @@ function showOrderDetails(counterObject, templateCopy) {
     });
 }
 
-export { showBartendersOrders };
+function checkMediaQueries() {
+    // solution for how to check media queries in JS taken from:
+    // https://usefulangle.com/post/202/javascript-check-media-query
+
+    const media_query = "screen and (max-width:900px)";
+
+    function check() {
+        const matched = window.matchMedia(media_query).matches;
+        if (matched) {
+            console.log("Screen is BELOW 900");
+        } else {
+            console.log("Screen is MORE THAN 900");
+        }
+    }
+
+    // event to watch the media query
+    check();
+    window.matchMedia(media_query).addEventListener("change", check);
+}
+
+export { showBartendersOrders, checkMediaQueries };

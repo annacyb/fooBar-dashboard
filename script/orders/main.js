@@ -1,7 +1,12 @@
 import { refresh_rate } from "../modules/settings.js";
 import { get_orders, get_beers } from "../modules/api.js";
 import { showQueue } from "./queue.js";
-import { showBartendersOrders } from "./bartenders-orders.js";
+import {
+    showBartendersOrders,
+    checkMediaQueries,
+} from "./bartenders-orders.js";
+
+window.addEventListener("DOMContentLoaded", checkMediaQueries);
 window.addEventListener("DOMContentLoaded", start);
 
 const data = {
@@ -27,7 +32,5 @@ async function loadData() {
 
 function showData() {
     showQueue(data);
-    // TO DELETE?
-    // generateRandomOrders(); // that bartenders served before entering the website
     showBartendersOrders(data);
 }
