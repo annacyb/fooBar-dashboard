@@ -106,7 +106,7 @@
                   <p class="order-time"></p>
                 </div>
               </div>
-              <!-- Placing here elements created on based on "queue-order-details-template" template -->
+              <!-- Placing here order details created from "queue-order-details-template" template -->
               <div class="order-details-place"></div>
             </div>
           </template>
@@ -138,14 +138,18 @@
                   <p class="order-time">20:23:45</p>
                 </div>
               </div>
-
-              <div class="order-details">
-                <div class="order-details-row">
-                  <p><span class="order-details-row-nr"></span><span class="order-details-row-name"></span></p>
-                </div>
-              </div>
-
+              <!-- Placing here order details created from "bartender-order-details-template" template -->
+              <div class="bartender-order-details-place"></div>
               <button class="button-ready">READY</button>
+            </div>
+          </template>
+
+          <!-- Bartenders- Template for order details (types of beers) in each order -->
+          <template class="bartender-order-details-template">
+            <div class="order-details">
+              <div class="order-details-row">
+                <p><span class="order-details-row-nr"></span><span class="order-details-row-name"></span></p>
+              </div>
             </div>
           </template>
 
@@ -166,7 +170,7 @@
             </div>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="queue-orders-place"></div>
+            <div class="bartender-orders-place"></div>
 
           </div>
 
@@ -187,7 +191,7 @@
             </div>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="queue-orders-place"></div>  
+            <div class="bartender-orders-place"></div>  
             
           </div>
 
@@ -208,7 +212,7 @@
             </div>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="queue-orders-place"></div> 
+            <div class="bartender-orders-place"></div> 
 
           </div>
 
@@ -231,7 +235,7 @@
             <template class="order-template"></template>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="queue-orders-place"></div> 
+            <div class="bartender-orders-place"></div> 
 
           </div>
 

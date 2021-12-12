@@ -27,5 +27,7 @@ async function loadData() {
 
 function showData() {
     showQueue(data);
+    // TO DELETE?
+    // generateRandomOrders(); // that bartenders served before entering the website
     showBartendersOrders(data);
 }

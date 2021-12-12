@@ -71,12 +71,12 @@ function countIdenticalBeers(order) {
 
 function createOrderDetailsView(indenticalBeersCounter, myCopy) {
     //grab the template for order details
-    const queue_order_details_template = document.querySelector(
+    const queueOrderDetailsTemplate = document.querySelector(
         "template.queue-order-details-template"
     ).content;
 
     //clone it
-    const orderDetailsCopy = queue_order_details_template.cloneNode(true);
+    const orderDetailsCopy = queueOrderDetailsTemplate.cloneNode(true);
 
     //change content
     showOrderDetails(indenticalBeersCounter, orderDetailsCopy);

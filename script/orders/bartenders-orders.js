@@ -1,6 +1,7 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 
 const bartenderOrdersCount = {
+    // value: array of completed orders + some randomly generated at start
     dannie: generateRandomOrders(),
     peter: generateRandomOrders(),
     klaus: generateRandomOrders(),
@@ -10,7 +11,6 @@ const bartenderOrdersCount = {
 // MAIN FUNCTION
 
 function showBartendersOrders(data) {
-    generateRandomOrders(); // that bartenders served before entering the website
     clearOrders();
     data.orders.bartenders.forEach((bartender) => {
         showOrders(bartender, data.orders.serving);
@@ -35,7 +35,7 @@ function clearOrders() {
     bartenders.forEach((name) => {
         const bartenderWrapper = document.querySelector(`#bartender-${name}`);
         const templatePlace = bartenderWrapper.querySelector(
-            ".queue-orders-place"
+            ".bartender-orders-place"
         );
         templatePlace.innerHTML = "";
     });
@@ -46,7 +46,9 @@ function showOrders(bartender, servings) {
     const bartenderWrapper = document.querySelector(
         `#bartender-${lowercaseName}`
     );
-    const templatePlace = bartenderWrapper.querySelector(".queue-orders-place");
+    const templatePlace = bartenderWrapper.querySelector(
+        ".bartender-orders-place"
+    );
     const orderId = bartender.servingCustomer;
 
     // check if there is an order id that has the same id as bartender's servingCustomer id
@@ -72,10 +74,8 @@ function showOrders(bartender, servings) {
         const orderTime = changeTimestampToTime(orderTimestamp);
         myCopy.querySelector(".order-time").textContent = orderTime;
 
-        // TO DO
-        // orderDetails.order.forEach((beer) => {}
-        // const indenticalBeersCounter = countIdenticalBeers(orderElement.order);
-        // createOrderDetailsView(indenticalBeersCounter, myCopy);
+        const indenticalBeersCounter = countIdenticalBeers(orderDetails.order);
+        createOrderDetailsView(indenticalBeersCounter, myCopy);
 
         //grab parent
         const parent = templatePlace;
@@ -98,6 +98,62 @@ function countBartenderOrder(lowercaseName, bartenderWrapper, order_id) {
 
     bartenderWrapper.querySelector(".bartender-nr-orders").innerHTML =
         bartenderOrdersCount[lowercaseName].length + " orders";
+}
+
+function countIdenticalBeers(order) {
+    let counter = {};
+    order.forEach((beer) => {
+        // hasOwnProperty - checks if key of beer exists in object
+        if (counter.hasOwnProperty(beer)) {
+            counter[beer] += 1;
+        } else {
+            counter[beer] = 1;
+        }
+    });
+    return counter;
+}
+
+function createOrderDetailsView(indenticalBeersCounter, myCopy) {
+    //grab the template for order details
+    const bartenderOrderDetailsTemplate = document.querySelector(
+        "template.bartender-order-details-template"
+    ).content;
+
+    //clone it
+    const orderDetailsCopy = bartenderOrderDetailsTemplate.cloneNode(true);
+
+    //change content
+    showOrderDetails(indenticalBeersCounter, orderDetailsCopy);
+
+    //grab parent
+    const orderContainer = myCopy.querySelector(
+        ".bartender-order-details-place"
+    );
+
+    //append order details
+    orderContainer.appendChild(orderDetailsCopy);
+}
+
+function showOrderDetails(counterObject, templateCopy) {
+    Object.entries(counterObject).forEach(([key, value]) => {
+        const orderDetailsBeerCopy = templateCopy
+            .querySelector(".order-details-row")
+            .cloneNode(true);
+
+        orderDetailsBeerCopy.querySelector(
+            ".order-details-row-name"
+        ).textContent = key;
+
+        orderDetailsBeerCopy.querySelector(
+            ".order-details-row-nr"
+        ).textContent = value + " x ";
+
+        // grab parent
+        const parent = templateCopy;
+
+        // append
+        parent.appendChild(orderDetailsBeerCopy);
+    });
 }
 
 export { showBartendersOrders };
