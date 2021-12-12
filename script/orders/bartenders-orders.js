@@ -1,4 +1,5 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
+import { addTabsEventListeners } from "../orders/tabs.js";
 
 const bartenderOrdersCount = {
     // value: array of completed orders + some randomly generated at start
@@ -166,6 +167,7 @@ function checkMediaQueries() {
         const matched = window.matchMedia(media_query).matches;
         if (matched) {
             console.log("Screen is BELOW 900");
+            addTabsEventListeners();
         } else {
             console.log("Screen is MORE THAN 900");
         }
