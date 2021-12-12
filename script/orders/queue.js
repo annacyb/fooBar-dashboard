@@ -2,6 +2,8 @@ import { changeTimestampToTime } from "../modules/time-counting.js";
 
 const queueContainer = document.querySelector("#queue-orders-place");
 
+// MAIN FUNCTION
+
 function showQueue(data) {
     clearQueue();
     if (data.orders.queue.length == 0) {
@@ -9,6 +11,10 @@ function showQueue(data) {
     } else {
         showQueueData(data);
     }
+}
+
+function clearQueue() {
+    queueContainer.innerHTML = "";
 }
 
 function showMissingData() {
@@ -63,6 +69,25 @@ function countIdenticalBeers(order) {
     return counter;
 }
 
+function createOrderDetailsView(indenticalBeersCounter, myCopy) {
+    //grab the template for order details
+    const queue_order_details_template = document.querySelector(
+        "template.queue-order-details-template"
+    ).content;
+
+    //clone it
+    const orderDetailsCopy = queue_order_details_template.cloneNode(true);
+
+    //change content
+    showOrderDetails(indenticalBeersCounter, orderDetailsCopy);
+
+    //grab parent
+    const orderContainer = myCopy.querySelector(".order-details-place");
+
+    //append order details
+    orderContainer.appendChild(orderDetailsCopy);
+}
+
 function showOrderDetails(counterObject, templateCopy) {
     Object.entries(counterObject).forEach(([key, value]) => {
         const orderDetailsBeerCopy = templateCopy
@@ -83,29 +108,6 @@ function showOrderDetails(counterObject, templateCopy) {
         // append
         parent.appendChild(orderDetailsBeerCopy);
     });
-}
-
-function createOrderDetailsView(indenticalBeersCounter, myCopy) {
-    //grab the template for order details
-    const queue_order_details_template = document.querySelector(
-        "template.queue-order-details-template"
-    ).content;
-
-    //clone it
-    const orderDetailsCopy = queue_order_details_template.cloneNode(true);
-
-    //change content
-    showOrderDetails(indenticalBeersCounter, orderDetailsCopy);
-
-    //grab parent
-    const orderContainer = myCopy.querySelector(".order-details-place");
-
-    //append order details
-    orderContainer.appendChild(orderDetailsCopy);
-}
-
-function clearQueue() {
-    queueContainer.innerHTML = "";
 }
 
 function showOrderNr(number) {

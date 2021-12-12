@@ -1,10 +1,33 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 
+const bartenderOrdersCount = {
+    dannie: generateRandomOrders(),
+    peter: generateRandomOrders(),
+    klaus: generateRandomOrders(),
+    jonas: generateRandomOrders(),
+};
+
+// MAIN FUNCTION
+
 function showBartendersOrders(data) {
+    generateRandomOrders(); // that bartenders served before entering the website
     clearOrders();
     data.orders.bartenders.forEach((bartender) => {
         showOrders(bartender, data.orders.serving);
     });
+}
+
+function generateRandomOrders() {
+    let randomList = [];
+    // random number between 50 and 80
+    // as it is not possible to know how many orders bartenders did before entering the website without backend
+    const randomNumber = Math.floor(Math.random() * 31) + 50;
+
+    for (let i = 0; i < randomNumber; i++) {
+        // the same id can be pushed to the array because the lenght of array is important for countBartnederOrder function
+        randomList.push("#0");
+    }
+    return randomList;
 }
 
 function clearOrders() {
@@ -26,9 +49,13 @@ function showOrders(bartender, servings) {
     const templatePlace = bartenderWrapper.querySelector(".queue-orders-place");
     const orderId = bartender.servingCustomer;
 
+    // check if there is an order id that has the same id as bartender's servingCustomer id
     const matchedOrders = servings.filter((order) => order.id == orderId);
     if (matchedOrders.length == 1) {
+        countBartenderOrder(lowercaseName, bartenderWrapper, orderId);
+
         let orderDetails = matchedOrders[0];
+
         // removing previous order
         templatePlace.innerHTML = "";
 
@@ -56,10 +83,21 @@ function showOrders(bartender, servings) {
         //append
         parent.appendChild(myCopy);
     } else if (matchedOrders.length == 0) {
-        templatePlace.innerHTML = "<p>No orders to show</p>";
+        templatePlace.innerHTML = `<p class="noOrders">No orders to show</p>`;
     } else {
-        templatePlace.innerHTML = "ERROR CANNOT SERVE MORE THAN 1 ORDER";
+        templatePlace.innerHTML =
+            "ERROR - bartender cannot serve more than 1 order at the same time";
     }
+}
+
+function countBartenderOrder(lowercaseName, bartenderWrapper, order_id) {
+    // so that counter will not grow everytime the website is refreshed but only if there is a new order's id
+    if (!bartenderOrdersCount[lowercaseName].includes(order_id)) {
+        bartenderOrdersCount[lowercaseName].push(order_id);
+    }
+
+    bartenderWrapper.querySelector(".bartender-nr-orders").innerHTML =
+        bartenderOrdersCount[lowercaseName].length + " orders";
 }
 
 export { showBartendersOrders };

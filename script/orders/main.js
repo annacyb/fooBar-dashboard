@@ -1,4 +1,3 @@
-import { tabs } from "../modules/tabs.js";
 import { refresh_rate } from "../modules/settings.js";
 import { get_orders, get_beers } from "../modules/api.js";
 import { showQueue } from "./queue.js";
@@ -14,6 +13,13 @@ async function start() {
     loop();
 }
 
+async function loop() {
+    await loadData();
+    showData();
+
+    setTimeout(loop, refresh_rate);
+}
+
 async function loadData() {
     data.beers = await get_beers();
     data.orders = await get_orders();
@@ -22,11 +28,4 @@ async function loadData() {
 function showData() {
     showQueue(data);
     showBartendersOrders(data);
-}
-
-async function loop() {
-    await loadData();
-    showData();
-
-    setTimeout(loop, refresh_rate);
 }
