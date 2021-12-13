@@ -1,4 +1,4 @@
-#logo-mobile {
+#web-title-mobile {
     display: none;
 }
 
@@ -81,11 +81,11 @@
         display: none;
     }
 
-    #logo-mobile {
+    #web-title-mobile {
         grid-column: 2 / span 1;
         display: block;
         // margin-left: 30px;
-        font-size: 0.9rem;
+        font-size: 0.7rem;
         grid-row: 1 / span 2;
         align-self: center;
     }

@@ -135,6 +135,15 @@
     border-radius: 7px;
 }
 
+.button-break:hover {
+    box-shadow: 0px 0px 4px 0px rgb(110 155 188 / 100%);
+}
+
+.button-break:active {
+    color: #226797;
+    box-shadow: 0px 0px 4px 0px rgb(118, 180, 225);
+}
+
 .button-leave {
     height: 44px;
     width: 90px;
@@ -144,6 +153,15 @@
     margin-right: 5px;
     box-shadow: 0px 0px 4px 0px rgb(110 155 188 / 50%);
     border-radius: 7px;
+}
+
+.button-leave:hover {
+    box-shadow: 0px 0px 4px 0px rgb(110 155 188 / 100%);
+}
+
+.button-leave:active {
+    color: #226797;
+    box-shadow: 0px 0px 4px 0px rgb(118, 180, 225);
 }
 
 .noOrders {
@@ -204,14 +222,34 @@
 
 .button-ready {
     height: 40px;
-    width: 90px;
+    width: 110px;
     margin-top: 20px;
     margin-left: 25px;
 
     border: 1.5px solid #6E9BBC;
     background-color: white;
     border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 7px;
 }
+
+.button-ready:hover {
+    transition: 0.35s;
+    color: white;
+    border: 1.5px solid #6E9BBC;
+    background-color: #6E9BBC;
+}
+
+.button-ready:active {
+    transition: 0.35s;
+    color: white;
+    border: 1.5px solid #4b93c7;
+    background-color: #4b93c7;
+}
+
 
 .flex {
     display: flex;
@@ -290,10 +328,29 @@
   }
 
 // when TABS are appearing
+
 @media screen and (max-width: 900px) {
-    // #bartenders-wrapper {
-    //     display: none;
-    // }
+    #bartenders-wrapper {
+        display: contents;
+    }
+
+    .bartender-cont:nth-of-type(1) {
+        border-bottom: none;
+    }
+    
+    .bartender-cont:nth-of-type(2) {
+        border-left: none;
+        border-bottom: none;
+    }
+    
+    .bartender-cont:nth-of-type(3) {
+        border-right: none;
+    }
+
+    .bartender-cont {
+        width: 100%;
+        border-bottom: none;
+    }
 
     #queue-wrapper {
         min-width: calc(100vw - 155px);
@@ -304,6 +361,8 @@
 
     #orders-content {
         margin-top: 0px;
+        // height: fit-content;
+        height: 100vh;
     }
 
     .queue-order-wrapper {
@@ -313,17 +372,13 @@
 
 
 @media screen and (max-width: 600px) {
-    #bartenders-wrapper {
-        display: block;
-    }
-
+    
     #main-orders {
         margin-left: 0px;
     }
     #orders-content {
         margin-left: 0px;
         justify-content: center;
-        height: fit-content;
         padding-bottom: 50px;
     }
 
