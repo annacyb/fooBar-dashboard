@@ -1,19 +1,9 @@
 import { changeTimestampToTime } from "../modules/time-counting.js";
 import { changeTimestampToHour } from "../modules/time-counting.js";
 import { prepareChartData } from "./graph";
+
 let newestOrder = [0];
-
-// const today = new Date();
-
-// const date = today.getDate();
-// const month = today.getUTCMonth();
-// const monthString = JSON.stringify(month);
-// const dateString = JSON.stringify(date);
-// let data = dateString;
-// data += monthString;
-// console.log("THE day IS", data);
-
-// localStorage.setItem(date, 13);
+console.log(newestOrder);
 
 const Order = {
   time: "",
@@ -23,16 +13,15 @@ const Order = {
 export let dataForChart = [];
 export let editedDataForChart = [];
 
-export function countRevenue(orders) {
+export function checkNewOrders(orders) {
   //check if theres some orders that are being served
-
   if (orders.length > 0) {
     // if yes check if it's a new order or the old one
     // get the last element in an array
     let newestCustomer = orders.slice(-1)[0].id;
     console.log("last order id", newestCustomer);
 
-    //update the newest order id
+    //update the newest order id by checking if the newest customer id is higher
     if (newestCustomer > newestOrder[0]) {
       newestOrder.unshift(newestCustomer);
       console.log("new order:", newestOrder[0]);
@@ -47,7 +36,7 @@ export function countRevenue(orders) {
   }
 }
 
-//DO THIS ONLY IF IT'S A NEW ORDER
+//THIS HAPPENS ONLY IF ITS A NEW ORDER
 
 async function orderDetails(orderObject, orders) {
   //find the order by it's id
@@ -55,25 +44,19 @@ async function orderDetails(orderObject, orders) {
 
   //count the price of the order
   const orderPrice = countPrice(foundOrder.order);
-  console.log(orderPrice);
+
   //get the time of the order
   const orderTimestamp = foundOrder.startTime;
   const orderTime = changeTimestampToHour(orderTimestamp);
 
-  createOrderObject(orderPrice, orderTime);
+  createOrderObject(orderPrice, orderTime); // for the chart
   prepareChartData(editedDataForChart);
-  showTheNumbers(foundOrder.order);
+  showServedToday(foundOrder.order);
 }
 
 function countPrice(order) {
-  // console.log(order.length);
   return order.length * 40;
 }
-
-// function getLength(order) {
-//   console.log(order.length);
-//   return order.length;
-// }
 
 function createOrderObject(orderPrice, orderTime) {
   const addOrder = Object.create(Order);
@@ -85,7 +68,7 @@ function createOrderObject(orderPrice, orderTime) {
   combineObject();
 }
 
-function showTheNumbers(order) {
+function showServedToday(order) {
   const orderLength = order.length;
 
   if (localStorage.servedCount) {
@@ -117,6 +100,4 @@ function combineObject() {
   const grouped = dataForChart.reduce((all, { time: c, price: a }) => ({ ...all, [c]: (all[c] || 0) + a }), {});
 
   editedDataForChart = Object.keys(grouped).map((k) => ({ time: k, price: grouped[k] }));
-
-  //   console.log(editedDataForChart);
 }

@@ -1,6 +1,4 @@
 import Chart from "chart.js/auto";
-import { editedDataForChart } from "./revenue";
-import { dataForChart } from "./revenue";
 
 const ctx = document.getElementById("myChart");
 
@@ -16,11 +14,6 @@ for (let i = 9; i <= hours; i++) {
 
   data.push(Math.floor(Math.random() * 15000));
 }
-
-// const labelsCut = labels.slice(2);
-// const dataCut = data.slice(2);
-
-// console.log(labels, data);
 
 const myChart = new Chart(ctx, {
   type: "line",
@@ -51,18 +44,15 @@ export function prepareChartData(dataForChart) {
 
 function updateChart(object) {
   if (myChart.data.datasets[0].data[Number(object.time) - 9] != null) {
-    myChart.data.datasets[0].data[Number(object.time) - 9] = object.price; // Would update the first dataset's value of 'March' to be 50
+    myChart.data.datasets[0].data[Number(object.time) - 9] = object.price;
     myChart.update();
   } else {
     addData(object);
   }
-} // }
+}
 
 function addData(object) {
   const { time, price } = object;
-
-  // console.log("LABEL", time);
-  // console.log("PRICE", price);
 
   myChart.data.labels.push(time);
 

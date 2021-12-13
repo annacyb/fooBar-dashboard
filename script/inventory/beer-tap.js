@@ -17,8 +17,8 @@ async function showTapStatus(beerObject) {
 
   const { level, capacity, beer } = beerObject;
 
+  //get the beer color from the json file
   const beerColor = await setBeerGradient(beer);
-  // console.log(beerColor);
 
   //calculate the percentage with level and capacity
   template.querySelector(".tap-amount").textContent = Math.round((level / capacity) * 100) + "%";

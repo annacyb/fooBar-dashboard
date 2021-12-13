@@ -17,7 +17,7 @@
           <a href="./index.html">
             <div class="nav-elem">
               <img src="./icons/orders-active.svg" alt="" />
-              <p style="font-weight: 600;">Orders</p>
+              <p style="font-weight: 600">Orders</p>
             </div>
           </a>
 
@@ -28,7 +28,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="./history.html">
             <div class="nav-elem">
               <img src="./icons/history.svg" alt="" />
               <p>History</p>
@@ -55,7 +55,7 @@
             </div>
           </a>
 
-          <a href="#">
+          <a href="./history.html">
             <div class="nav-elem-mobile">
               <img src="./icons/history.svg" alt="" />
               <p>History</p>
@@ -66,11 +66,10 @@
     </head>
 
     <main id="main-orders">
-
       <div id="top-bar">
         <h1 id="web-title">Orders</h1>
         <div id="cont-closing-time" class="closing-time">
-          <img src="./icons/time-left.svg" alt="" class="icon1"/>
+          <img src="./icons/time-left.svg" alt="" class="icon1" />
           <p><span id="closing-in">Closing in </span><span id="closingHour"></span>h <span id="closingMinutes"></span><span>min</span></p>
         </div>
         <div class="cont-separator"></div>
@@ -88,21 +87,19 @@
           <li><a href="#/" data-bartender="Klaus">Klaus</a></li>
           <li><a href="#/" data-bartender="Peter">Peter</a></li>
         </ul>
-        
       </div>
 
       <div id="orders-content">
-
         <section id="queue-wrapper">
           <h2>Orders in queue: <span id="queue-nr">0</span></h2>
-          
+
           <!-- Template for orders in a queue -->
           <template class="queue-order-template">
             <div class="queue-order-wrapper">
               <div class="order-top-bar">
                 <h2>Order <span class="order-id"></span></h2>
                 <div class="flex">
-                  <img src="./icons/time.svg" alt="">
+                  <img src="./icons/time.svg" alt="" />
                   <p class="order-time"></p>
                 </div>
               </div>
@@ -122,11 +119,9 @@
 
           <!-- Placing here elements created on based on "queue-order-template" template -->
           <div id="queue-orders-place"></div>
-          
         </section>
 
         <section id="bartenders-wrapper">
-          
           <!-- Bartenders- template for orders -->
           <template class="bartenders-order-template">
             <div class="order-wrapper">
@@ -134,7 +129,7 @@
               <div class="order-top-bar">
                 <h2>Order <span class="order-id"></span></h2>
                 <div class="flex">
-                  <img src="./icons/time.svg" alt="">
+                  <img src="./icons/time.svg" alt="" />
                   <p class="order-time">20:23:45</p>
                 </div>
               </div>
@@ -153,11 +148,10 @@
             </div>
           </template>
 
-
           <div class="bartender-cont" id="bartender-dannie">
             <div class="bartender-top-bar">
               <div class="personal-info">
-                <img class="bartender-photo" src="./images/dannie.jpg" alt="">
+                <img class="bartender-photo" src="./images/dannie.jpg" alt="" />
                 <div>
                   <h4 class="bartender-name">Dannie</h4>
                   <p class="bartender-nr-orders"><span>0</span> orders</p>
@@ -171,14 +165,12 @@
 
             <!-- Placing "bartenders-order-template" -->
             <div class="bartender-orders-place"></div>
-
           </div>
 
-
-          <div class="bartender-cont"  id="bartender-jonas">
+          <div class="bartender-cont" id="bartender-jonas">
             <div class="bartender-top-bar">
               <div class="personal-info">
-                <img class="bartender-photo" src="./images/jonas.jpg" alt="">
+                <img class="bartender-photo" src="./images/jonas.jpg" alt="" />
                 <div>
                   <h4 class="bartender-name">Jonas</h4>
                   <p class="bartender-nr-orders"><span>0</span> orders</p>
@@ -191,15 +183,13 @@
             </div>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="bartender-orders-place"></div>  
-            
+            <div class="bartender-orders-place"></div>
           </div>
 
-        
-          <div class="bartender-cont"  id="bartender-klaus">
+          <div class="bartender-cont" id="bartender-klaus">
             <div class="bartender-top-bar">
               <div class="personal-info">
-                <img class="bartender-photo" src="./images/klaus.png" alt="">
+                <img class="bartender-photo" src="./images/klaus.png" alt="" />
                 <div>
                   <h4 class="bartender-name">Klaus</h4>
                   <p class="bartender-nr-orders"><span>0</span> orders</p>
@@ -212,15 +202,13 @@
             </div>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="bartender-orders-place"></div> 
-
+            <div class="bartender-orders-place"></div>
           </div>
 
-
-          <div class="bartender-cont"  id="bartender-peter">
+          <div class="bartender-cont" id="bartender-peter">
             <div class="bartender-top-bar">
               <div class="personal-info">
-                <img class="bartender-photo" src="./images/peter.jpg" alt="">
+                <img class="bartender-photo" src="./images/peter.jpg" alt="" />
                 <div>
                   <h4 class="bartender-name">Peter</h4>
                   <p class="bartender-nr-orders"><span>0</span> orders</p>
@@ -235,14 +223,10 @@
             <template class="order-template"></template>
 
             <!-- Placing "bartenders-order-template" -->
-            <div class="bartender-orders-place"></div> 
-
+            <div class="bartender-orders-place"></div>
           </div>
-
         </section>
-
       </div>
-
     </main>
 
     <script type="module" src="./script/orders/main.js"></script>
