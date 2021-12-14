@@ -1,5 +1,5 @@
 async function getBeerMainColors() {
-  const response = await fetch("././beer-colors.json");
+  const response = await fetch(".././beer-colors.json");
   return await response.json();
 }
 
