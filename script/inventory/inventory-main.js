@@ -1,7 +1,8 @@
 import { prepareBeerStock } from "./beer-stock";
 import { prepareTapStatus } from "./beer-tap";
 import { refresh_rate } from "../modules/settings";
-import { checkNewOrders } from "../inventory/revenue";
+import { checkNewOrders } from "./revenue";
+import { get_orders } from "../modules/api.js";
 
 // import { addData } from "./graph.js";
 // import { PrepareGraph } from "./graph.js";
@@ -18,14 +19,6 @@ async function init() {
   loop();
 }
 
-async function getData() {
-  let response = await fetch("https://foo-bar-database.herokuapp.com/");
-  // console.log(response.statusText);
-  const json = await response.json();
-
-  return json;
-}
-
 function showData(data) {
   prepareBeerStock(data.storage);
   prepareTapStatus(data.taps);
@@ -34,7 +27,7 @@ function showData(data) {
 }
 
 async function loop() {
-  const data = await getData();
+  const data = await get_orders();
   showData(data);
   setTimeout(loop, refresh_rate);
 }
