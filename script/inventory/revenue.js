@@ -18,14 +18,14 @@ export function checkNewOrders(orders) {
   if (orders.length > 0) {
     // if yes check if it's a new order or the old one
     // get the last element in an array
-    let newestCustomer = orders.slice(-1)[0].id;
-    console.log("last order id", newestCustomer);
+    let lastCustomer = orders.slice(-1)[0].id;
+    console.log("last order id", lastCustomer);
 
     //update the newest order id by checking if the newest customer id is higher
-    if (newestCustomer > newestOrder[0]) {
-      newestOrder.unshift(newestCustomer);
+    if (lastCustomer > newestOrder[0]) {
+      newestOrder.unshift(lastCustomer);
       console.log("new order:", newestOrder[0]);
-      orderDetails(newestCustomer, orders);
+      orderDetails(lastCustomer, orders);
     }
     //if not NO NEW ORDERS
     else {
