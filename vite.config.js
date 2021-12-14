@@ -7,7 +7,7 @@ module.exports = {
             input: {
                 main: resolve(__dirname, "index.html"),
                 sub: resolve(__dirname, "inventory.html"),
-                sub: resolve(__dirname, "history.html"),
+                history: resolve(__dirname, "history.html"),
             },
         },
     },
