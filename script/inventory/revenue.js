@@ -38,9 +38,9 @@ export function checkNewOrders(orders) {
 
 //THIS HAPPENS ONLY IF ITS A NEW ORDER
 
-async function orderDetails(orderObject, orders) {
+async function orderDetails(lastCustomer, orders) {
   //find the order by it's id
-  let foundOrder = orders.find((x) => x.id === orderObject);
+  let foundOrder = orders.find((x) => x.id === lastCustomer);
 
   //count the price of the order
   const orderPrice = countPrice(foundOrder.order);
@@ -51,7 +51,9 @@ async function orderDetails(orderObject, orders) {
 
   createOrderObject(orderPrice, orderTime); // for the chart
   prepareChartData(editedDataForChart);
-  showServedToday(foundOrder.order);
+
+  //showing the SERVED TODAY
+  countServedToday(foundOrder.order);
 }
 
 function countPrice(order) {
@@ -68,7 +70,7 @@ function createOrderObject(orderPrice, orderTime) {
   combineObject();
 }
 
-function showServedToday(order) {
+function countServedToday(order) {
   const orderLength = order.length;
 
   if (localStorage.servedCount) {
