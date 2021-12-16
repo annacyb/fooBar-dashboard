@@ -3,7 +3,7 @@ import { changeTimestampToHour } from "../modules/time-counting.js";
 import { prepareChartData } from "./graph";
 
 let newestOrder = [0];
-console.log(newestOrder);
+// console.log(newestOrder);
 
 const Order = {
   time: "",
@@ -19,12 +19,10 @@ export function checkNewOrders(orders) {
     // if yes check if it's a new order or the old one
     // get the last element in an array
     let lastCustomer = orders.slice(-1)[0].id;
-    console.log("last order id", lastCustomer);
 
     //update the newest order id by checking if the newest customer id is higher
     if (lastCustomer > newestOrder[0]) {
       newestOrder.unshift(lastCustomer);
-      console.log("new order:", newestOrder[0]);
       orderDetails(lastCustomer, orders);
     }
     //if not NO NEW ORDERS
@@ -67,7 +65,7 @@ function createOrderObject(orderPrice, orderTime) {
 
   dataForChart.unshift(addOrder);
   // console.log(dataForChart);
-  combineObject();
+  combineObjects();
 }
 
 function countServedToday(order) {
@@ -98,7 +96,7 @@ function showBeersToday() {
 
 //SUMING UP THE PRICES WITH THAT HAVE THE  SAME TIME
 
-function combineObject() {
+function combineObjects() {
   const grouped = dataForChart.reduce((all, { time: c, price: a }) => ({ ...all, [c]: (all[c] || 0) + a }), {});
 
   editedDataForChart = Object.keys(grouped).map((k) => ({ time: k, price: grouped[k] }));
