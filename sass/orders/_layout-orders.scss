@@ -1,5 +1,7 @@
 @use "../base/colors";
 
+// GENERAL
+
 #main-orders {
     margin-left: 100px;
 }
@@ -50,7 +52,7 @@
 }
 
 
-// bartender
+// BARTENDERS
 
 #bartenders-wrapper {
     display: flex;
@@ -133,6 +135,7 @@
     margin-right: 5px;
     box-shadow: 0px 0px 4px 0px rgb(110 155 188 / 50%);
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .button-break:hover {
@@ -153,6 +156,7 @@
     margin-right: 5px;
     box-shadow: 0px 0px 4px 0px rgb(110 155 188 / 50%);
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .button-leave:hover {
@@ -169,7 +173,7 @@
     opacity: 0.75;
 }
 
-// order details
+// ORDER DETAILS
 
 .order-wrapper {
     background-color: white;
@@ -234,6 +238,7 @@
     align-items: center;
     justify-content: center;
     column-gap: 7px;
+    cursor: pointer;
 }
 
 .button-ready:hover {
@@ -250,10 +255,12 @@
     background-color: #4b93c7;
 }
 
-
 .flex {
     display: flex;
 }
+
+
+// MEDIA QUERIES
 
 @media screen and (max-width: 1600px) {
     .bartender-cont {
