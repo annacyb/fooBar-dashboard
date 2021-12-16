@@ -3,7 +3,6 @@ import { changeTimestampToHour } from "../modules/time-counting.js";
 import { prepareChartData } from "./graph";
 
 let newestOrder = [0];
-// console.log(newestOrder);
 
 const Order = {
   time: "",
@@ -64,7 +63,6 @@ function createOrderObject(orderPrice, orderTime) {
   addOrder.time = orderTime;
 
   dataForChart.unshift(addOrder);
-  // console.log(dataForChart);
   combineObjects();
 }
 

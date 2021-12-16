@@ -34,7 +34,6 @@ async function loop() {
 
 function resetLocalStorage() {
   if (hours >= 22 || hours < 9) {
-    console.log("closing time- reset");
     document.querySelector(".nr-served-today").textContent = "THE BAR IS CLOSED";
     document.querySelector(".beer-served-today").textContent = "THE BAR IS CLOSED";
     document.querySelector(".nr-served-today").style.fontSize = "2vw";

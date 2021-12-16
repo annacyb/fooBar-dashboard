@@ -36,7 +36,7 @@ const myChart = new Chart(ctx, {
 });
 
 export function prepareChartData(dataForChart) {
-  console.log(dataForChart);
+  // console.log(dataForChart);
   dataForChart.forEach((object) => {
     updateChart(object);
   });
