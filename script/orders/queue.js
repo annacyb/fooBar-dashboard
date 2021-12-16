@@ -3,7 +3,6 @@ import { changeTimestampToTime } from "../modules/time-counting.js";
 const queueContainer = document.querySelector("#queue-orders-place");
 
 // MAIN FUNCTION
-
 function showQueue(data) {
     clearQueue();
     if (data.orders.queue.length == 0) {
@@ -89,6 +88,7 @@ function createOrderDetailsView(indenticalBeersCounter, myCopy) {
 }
 
 function showOrderDetails(counterObject, templateCopy) {
+    // it is changing counterObject object to an array of arrays where first element (key) is the name of the beer and second element (value) is a number of beers of that type
     Object.entries(counterObject).forEach(([key, value]) => {
         const orderDetailsBeerCopy = templateCopy
             .querySelector(".order-details-row")

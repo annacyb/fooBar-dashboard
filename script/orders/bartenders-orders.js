@@ -166,10 +166,10 @@ function checkMediaQueries() {
     function check() {
         const matched = window.matchMedia(media_query).matches;
         if (matched) {
-            console.log("Screen is BELOW 900");
+            // width of the screen is below 900px width
             addTabsEventListeners();
         } else {
-            console.log("Screen is MORE THAN 900");
+            // width of the screen is more than 900px
             deleteDisplayNoneClasses();
             // TO DO - reset tab classes so that queue will be selected
         }
